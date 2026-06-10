@@ -165,27 +165,6 @@
             51%, 100% { opacity: 0; }
         }
 
-        /* "Coming soon" frosted overlay per download-knop — smooth, geen harde distortie */
-        .coming-soon {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 1rem; /* = rounded-2xl, gelijk aan de knop */
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(3px) saturate(110%);
-            -webkit-backdrop-filter: blur(3px) saturate(110%);
-        }
-        .coming-soon span {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.28em;
-            color: #d4d4d8; /* licht grijs */
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
-        }
-
         .phone-before { filter: grayscale(0.25) brightness(0.99); }
     </style>
     <script>
@@ -252,7 +231,6 @@
                             </div>
                         </div>
                     </a>
-                    <div class="coming-soon"><span>Coming soon</span></div>
                 </div>
                 <div class="relative">
                     <a class="flex items-center justify-center w-56 h-16 bg-black text-white rounded-2xl shadow-xl">
@@ -264,22 +242,10 @@
                             </div>
                         </div>
                     </a>
-                    <div class="coming-soon"><span>Coming soon</span></div>
                 </div>
             </div>
+            <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-gray-500">Coming soon</p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
-                <div class="flex -space-x-2.5">
-                    <div class="w-8 h-8 rounded-full ring-2 ring-[#fafafa] bg-gradient-to-br from-orange-300 to-pink-400"></div>
-                    <div class="w-8 h-8 rounded-full ring-2 ring-[#fafafa] bg-gradient-to-br from-sky-300 to-indigo-400"></div>
-                    <div class="w-8 h-8 rounded-full ring-2 ring-[#fafafa] bg-gradient-to-br from-emerald-300 to-teal-400"></div>
-                    <div class="w-8 h-8 rounded-full ring-2 ring-[#fafafa] bg-gradient-to-br from-amber-300 to-orange-400"></div>
-                    <div class="w-8 h-8 rounded-full ring-2 ring-[#fafafa] bg-app-accent flex items-center justify-center text-[10px] font-bold text-gray-900">+</div>
-                </div>
-                <p class="text-sm text-gray-500">
-                    <span class="font-semibold text-gray-900">5.400+ mensen</span> genieten al van een overzichtelijke inbox
-                </p>
-            </div>
             </div>
         </div>
     </section>
@@ -862,7 +828,6 @@
                             </div>
                         </div>
                     </a>
-                    <div class="coming-soon"><span>Coming soon</span></div>
                 </div>
                 <div class="relative">
                     <a class="flex items-center justify-center w-56 h-16 bg-gray-100 text-gray-900 rounded-2xl shadow-md border border-gray-200">
@@ -874,10 +839,10 @@
                             </div>
                         </div>
                     </a>
-                    <div class="coming-soon"><span>Coming soon</span></div>
                 </div>
             </div>
-            <p class="text-base text-gray-500 mt-8">Gebruik Beeylo nu gratis.</p>
+            <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-gray-500">Coming soon</p>
+            <p class="text-base text-gray-500 mt-6">Gebruik Beeylo nu gratis.</p>
         </div>
     </section>
 
