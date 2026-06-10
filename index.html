@@ -165,6 +165,92 @@
             51%, 100% { opacity: 0; }
         }
 
+        /* ====== Hero live-stage: 1:1 app-kaart die zich real-time gedraagt ====== */
+        .live-stage { position: relative; height: 196px; }
+        .live-card {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            color: #fff;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.10);
+            transition: transform .55s cubic-bezier(.5,0,0,1), opacity .45s ease;
+            will-change: transform, opacity;
+        }
+        .live-card.entering { transform: translateY(20px) scale(.965); opacity: 0; }
+        .live-card.leaving  { transform: translateY(-26px) scale(.99); opacity: 0; }
+        .live-card .deco {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 9999px;
+            pointer-events: none;
+        }
+        .lc-pad { position: relative; padding: 16px 18px; height: 100%; }
+        .lc-head { display: flex; align-items: center; }
+        .lc-ava {
+            width: 34px; height: 34px; border-radius: 8px;
+            background: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 9px; font-weight: 800; flex-shrink: 0;
+        }
+        .lc-meta { margin-left: 10px; min-width: 0; flex: 1; }
+        .lc-co   { font-size: 13px; font-weight: 600; letter-spacing: -0.13px; line-height: 1.1; }
+        .lc-time { font-size: 12px; color: rgba(255,255,255,0.7); letter-spacing: -0.12px; }
+        .lc-title {
+            margin-top: 14px;
+            font-size: 15.5px; font-weight: 700; line-height: 1.3; letter-spacing: -0.18px;
+            transition: opacity .4s ease;
+        }
+        .lc-title.struck { opacity: 0.7; }
+
+        /* Ronde actie-knoppen (bel = herinnering, vink = afvinken) */
+        .act {
+            width: 30px; height: 30px; border-radius: 9999px;
+            background: rgba(0, 0, 0, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: background .35s ease, border-color .35s ease, transform .35s ease;
+        }
+        .act + .act { margin-left: 6px; }
+        .act svg { width: 16px; height: 16px; color: rgba(255, 255, 255, 0.92); transition: color .35s ease; }
+        .act-check .ck { stroke-dasharray: 26; stroke-dashoffset: 26; }
+        .act-check.done { background: #23A455; border-color: rgba(255, 255, 255, 0.35); }
+        .act-check.done .ck { animation: ck-draw .5s .05s forwards ease-out; }
+        @keyframes ck-draw { to { stroke-dashoffset: 0; } }
+        .act-bell.set { background: #F5B400; border-color: rgba(255, 255, 255, 0.35); animation: bell-wiggle .65s ease; }
+        .act-bell.set svg { color: #1a1a1a; }
+        @keyframes bell-wiggle {
+            0%,100% { transform: rotate(0); }
+            18% { transform: rotate(-13deg); } 38% { transform: rotate(10deg); }
+            58% { transform: rotate(-6deg); } 78% { transform: rotate(4deg); }
+        }
+
+        /* Toast onderin de kaart ("Afgevinkt" / "Herinnering gezet…") */
+        .lc-toast {
+            position: absolute; left: 18px; right: 18px; bottom: 14px;
+            display: flex; align-items: center; gap: 9px;
+            background: rgba(0, 0, 0, 0.26);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 12px;
+            padding: 9px 11px;
+            transform: translateY(14px); opacity: 0;
+            transition: transform .42s cubic-bezier(.5,0,0,1), opacity .42s ease;
+        }
+        .lc-toast.show { transform: translateY(0); opacity: 1; }
+        .lc-toast .t-ico {
+            width: 20px; height: 20px; border-radius: 9999px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .lc-toast .t-ico svg { width: 12px; height: 12px; }
+        .lc-toast .t-text { font-size: 12px; font-weight: 500; color: #fff; letter-spacing: -0.1px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .live-card { transition: opacity .3s ease; }
+            .act-check.done .ck { animation: none; stroke-dashoffset: 0; }
+            .act-bell.set { animation: none; }
+        }
+
         .phone-before { filter: grayscale(0.25) brightness(0.99); }
     </style>
     <script>
@@ -211,41 +297,90 @@
                 <div class="absolute top-[30%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-500/5 blur-[100px]"></div>
             </div>
 
-            <div class="relative z-10 w-full max-w-4xl mx-auto px-6 lg:px-10 py-16 lg:py-20 text-center reveal active">
-            <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter text-gray-900 mb-8 leading-[1.05]">
-                90% van je inbox<br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">is ruis.</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Beeylo haalt eruit wat belangrijk is en zet het overzichtelijk voor je neer. Zodat je nooit meer iets mist, en nooit meer hoeft te zoeken.
-            </p>
+            <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-10 py-20 reveal active">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-            <div class="inline-flex flex-col sm:flex-row justify-center items-center gap-4">
-                <div class="relative">
-                    <a class="flex items-center justify-center w-56 h-16 bg-black text-white rounded-2xl shadow-xl">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-8 h-8 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                            <div class="text-left">
-                                <div class="text-[10px] leading-tight">Download in de</div>
-                                <div class="text-lg font-semibold leading-tight">App Store</div>
+                    <!-- Tekst + CTA links -->
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-5xl md:text-7xl lg:text-[4.75rem] font-bold tracking-tighter text-gray-900 mb-7 leading-[1.04]">
+                            90% van je inbox<br class="hidden sm:block">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">is ruis.</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-500 max-w-xl mx-auto lg:mx-0 mb-9 leading-relaxed">
+                            Beeylo haalt eruit wat belangrijk is en zet het overzichtelijk voor je neer. Zodat je nooit meer iets mist, en nooit meer hoeft te zoeken.
+                        </p>
+
+                        <div class="inline-flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+                            <a class="flex items-center justify-center w-56 h-16 bg-black text-white rounded-2xl shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <svg class="w-8 h-8 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                                    <div class="text-left">
+                                        <div class="text-[10px] leading-tight">Download in de</div>
+                                        <div class="text-lg font-semibold leading-tight">App Store</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="flex items-center justify-center w-56 h-16 bg-black text-white rounded-2xl shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <svg class="w-8 h-8 fill-current" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                                    <div class="text-left">
+                                        <div class="text-[10px] leading-tight">ONTDEK HET OP</div>
+                                        <div class="text-lg font-semibold leading-tight">Google Play</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-gray-500">Coming soon</p>
+                    </div>
+
+                    <!-- Live telefoon rechts: 1:1 app-kaart die zichzelf afvinkt / een herinnering krijgt -->
+                    <div class="flex justify-center lg:justify-end">
+                        <div class="phone-frame w-[290px]">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen h-[560px] app-bg">
+                                <!-- TopbarV2 -->
+                                <div class="pt-12 px-4 pb-2 flex items-center justify-between app-bg">
+                                    <div class="flex items-center gap-1.5">
+                                        <img src="logo.png" alt="Beeylo" class="w-6 h-6 object-contain">
+                                    </div>
+                                    <div class="flex items-center gap-2.5 text-[#111111]">
+                                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 7.5l8.5 6 8.5-6"/></svg>
+                                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0m6 0H9"/></svg>
+                                        <div class="w-7 h-7 rounded-full bg-app-accentDark flex items-center justify-center text-[12px] font-bold text-white">D</div>
+                                    </div>
+                                </div>
+                                <!-- Belangrijk -->
+                                <div class="px-4 pt-3 pb-3 flex items-center gap-2.5">
+                                    <span class="app-section-title" style="font-size:21px;">Belangrijk</span>
+                                    <span id="liveCount" class="app-count-pill h-[22px] min-w-[22px] px-1.5 inline-flex items-center justify-center text-[12px]">3</span>
+                                </div>
+                                <!-- Live stage: één kaart die naar de volgende springt -->
+                                <div class="px-4">
+                                    <div class="live-stage">
+                                        <div id="liveCard" class="live-card"></div>
+                                    </div>
+                                </div>
+                                <!-- Statische "Updates" eronder, om de telefoon af te maken -->
+                                <div class="px-4 pt-5 pb-2.5 flex items-center gap-2.5">
+                                    <span class="app-section-title" style="font-size:21px;">Updates</span>
+                                    <span class="app-count-pill h-[22px] min-w-[22px] px-1.5 inline-flex items-center justify-center text-[12px]">2</span>
+                                </div>
+                                <div class="px-4">
+                                    <div class="app-card px-3.5 py-3">
+                                        <div class="flex items-center">
+                                            <div class="w-6 h-6 rounded-md bg-[#FFC917] text-[#001A4D] text-[8px] font-extrabold flex items-center justify-center flex-shrink-0">NS</div>
+                                            <span class="ml-2 flex-1 text-[12.5px] app-company truncate">NS</span>
+                                            <span class="text-[12px] app-time">3u</span>
+                                        </div>
+                                        <p class="mt-2 text-[14px] font-semibold app-headline">Je reis naar Amsterdam is gepland</p>
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#F8F8F9] to-transparent pointer-events-none"></div>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="relative">
-                    <a class="flex items-center justify-center w-56 h-16 bg-black text-white rounded-2xl shadow-xl">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-8 h-8 fill-current" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-                            <div class="text-left">
-                                <div class="text-[10px] leading-tight">ONTDEK HET OP</div>
-                                <div class="text-lg font-semibold leading-tight">Google Play</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-gray-500">Coming soon</p>
+                    </div>
 
+                </div>
             </div>
         </div>
     </section>
@@ -874,6 +1009,97 @@
             });
         }, revealOptions);
         revealElements.forEach(el => revealOnScroll.observe(el));
+    </script>
+
+    <!-- Hero live-stage: 1:1 app-kaart die zichzelf afvinkt of een herinnering krijgt -->
+    <script>
+        (function () {
+            const card  = document.getElementById('liveCard');
+            const count = document.getElementById('liveCount');
+            if (!card) return;
+
+            const SVG_BELL  = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.9"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0m6 0H9"/></svg>';
+            const SVG_CHECK = '<svg class="ck" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.6"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+            const SVG_MINI_CHECK = '<svg fill="none" stroke="#fff" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+            const SVG_MINI_BELL  = '<svg fill="none" stroke="#1a1a1a" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0m6 0H9"/></svg>';
+
+            // Realistische kaarten uit de app (StackWrap _SliderCard)
+            const scenes = [
+                { company: 'bol.com',  ava: 'bol.', avaColor: '#0A56C2', time: '2u', grad: 'linear-gradient(135deg,#0A3E8F,#1A5FCC)',
+                  title: 'Je factuur van september staat klaar om te betalen', action: 'check',
+                  toast: 'Afgevinkt · verplaatst naar gelezen' },
+                { company: 'Coolblue', ava: 'cb', avaColor: '#0090E3', time: '1d', grad: 'linear-gradient(135deg,#0E5C8A,#1488C9)',
+                  title: 'Nieuwe sneakers, onderweg naar je toe', action: 'reminder',
+                  toast: 'Herinnering gezet · morgen 09:00' },
+                { company: 'Belastingdienst', ava: 'BD', avaColor: '#1F4E8C', time: '3u', grad: 'linear-gradient(135deg,#1F7A52,#2FA06B)',
+                  title: 'Aangifte: betaal vóór 30 juni', action: 'reminder',
+                  toast: 'Herinnering gezet · 28 juni 10:00' },
+                { company: 'Vattenfall', ava: 'V', avaColor: '#FFDA00', time: '5u', grad: 'linear-gradient(135deg,#5B3A8C,#8456C8)',
+                  title: 'Je jaarafrekening is binnen en akkoord', action: 'check',
+                  toast: 'Afgevinkt · niets te doen' }
+            ];
+
+            const wait = ms => new Promise(r => setTimeout(r, ms));
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function template(s) {
+                return ''
+                + '<div class="deco" style="width:170px;height:170px;top:-58px;right:-46px;"></div>'
+                + '<div class="deco" style="width:210px;height:210px;bottom:-88px;left:-48px;"></div>'
+                + '<div class="lc-pad">'
+                +   '<div class="lc-head">'
+                +     '<div class="lc-ava" style="color:' + s.avaColor + '">' + s.ava + '</div>'
+                +     '<div class="lc-meta"><div class="lc-co">' + s.company + '</div><div class="lc-time">' + s.time + '</div></div>'
+                +     '<div class="act act-bell">' + SVG_BELL + '</div>'
+                +     '<div class="act act-check">' + SVG_CHECK + '</div>'
+                +   '</div>'
+                +   '<p class="lc-title">' + s.title + '</p>'
+                +   '<div class="lc-toast">'
+                +     '<span class="t-ico" style="background:' + (s.action === 'check' ? '#23A455' : '#F5B400') + '">'
+                +       (s.action === 'check' ? SVG_MINI_CHECK : SVG_MINI_BELL) + '</span>'
+                +     '<span class="t-text">' + s.toast + '</span>'
+                +   '</div>'
+                + '</div>';
+            }
+
+            let i = 0;
+            async function run() {
+                for (;;) {
+                    const s = scenes[i % scenes.length];
+                    card.style.background = s.grad;
+                    card.innerHTML = template(s);
+
+                    // binnenkomen
+                    card.classList.remove('leaving');
+                    card.classList.add('entering');
+                    // forceer reflow zodat de transitie pakt
+                    void card.offsetWidth;
+                    requestAnimationFrame(() => card.classList.remove('entering'));
+
+                    await wait(reduce ? 700 : 1200);
+
+                    // interactie real-time afspelen
+                    if (s.action === 'check') {
+                        card.querySelector('.act-check').classList.add('done');
+                        card.querySelector('.lc-title').classList.add('struck');
+                        await wait(reduce ? 200 : 480);
+                    } else {
+                        card.querySelector('.act-bell').classList.add('set');
+                        await wait(reduce ? 200 : 420);
+                    }
+                    card.querySelector('.lc-toast').classList.add('show');
+                    if (count) count.textContent = String(Math.max(1, scenes.length - 1 - (i % 2)));
+
+                    await wait(reduce ? 900 : 1500);
+
+                    // weg, volgende
+                    card.classList.add('leaving');
+                    await wait(reduce ? 350 : 560);
+                    i++;
+                }
+            }
+            run();
+        })();
     </script>
 </body>
 </html>
