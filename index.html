@@ -192,7 +192,10 @@
                     <img src="logo.png" alt="Beeylo" class="w-9 h-9 object-contain">
                     <img src="wordmark.png" alt="Beeylo" class="h-5 object-contain">
                 </a>
-                <div>
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="#prijzen" class="hidden sm:inline-block text-gray-600 font-medium px-3 py-2 rounded-full hover:text-gray-900 transition-colors duration-200">
+                        Prijzen
+                    </a>
                     <a href="#download" class="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl">
                         Download de app
                     </a>
@@ -684,6 +687,129 @@
                     <p class="text-[15px] text-gray-500 leading-relaxed">Eén tap en alles is gewist. Geen gedoe, geen vragen. Jij houdt de controle.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- SECTION: Prijzen — Gratis vs Pro                               -->
+    <!-- Gratis = rust (al een compleet product). Pro = nooit iets      -->
+    <!-- missen. (Interne conversie-triggers bewust weggelaten.)        -->
+    <!-- ============================================================= -->
+    <section id="prijzen" class="py-28 lg:py-32 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="text-center reveal mb-14">
+                <span class="inline-flex items-center gap-1.5 text-[13px] font-bold text-app-accentDark tracking-tight uppercase mb-5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span> Prijzen
+                </span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-5 leading-[1.05]">
+                    Begin gratis.<br>Upgrade als je niets meer wil missen.
+                </h2>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                    Gratis geeft je rust. Premium zorgt dat je nooit meer iets mist.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch reveal reveal-d1">
+
+                <!-- GRATIS -->
+                <div class="bg-white rounded-3xl border border-gray-200 shadow-[0_2px_20px_rgba(0,0,0,0.04)] p-8 lg:p-10 flex flex-col">
+                    <div class="flex items-baseline justify-between">
+                        <h3 class="text-2xl font-bold text-gray-900">Gratis</h3>
+                        <span class="text-[13px] font-semibold text-gray-400">Voor altijd</span>
+                    </div>
+                    <div class="mt-4 flex items-end gap-1">
+                        <span class="text-5xl font-bold tracking-tight text-gray-900">€0</span>
+                    </div>
+                    <p class="mt-4 text-[15px] text-gray-500 leading-relaxed">
+                        Beeylo geeft je rust. Alleen wat telt, niets anders. Al fundamenteel beter dan elke gewone inbox.
+                    </p>
+
+                    <a href="#download" class="mt-7 w-full inline-flex items-center justify-center h-12 rounded-full bg-gray-900 text-white font-medium hover:bg-gray-800 transition-colors">
+                        Download de app
+                    </a>
+
+                    <div class="mt-8 pt-8 border-t border-gray-100 flex-1">
+                        <p class="text-[13px] font-semibold text-gray-400 uppercase tracking-wide mb-4">Wat je krijgt</p>
+                        <ul class="space-y-3.5">
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Gefilterde inbox</span> — alleen berichten die er toe doen</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Belangrijk &amp; Updates</span> — wat actie vereist en wat je moet weten</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Volledig archief</span> op de berichtenpagina</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Slimme zoekfunctie</span> — typ wat je zoekt, vind het meteen</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">1 week mailgeschiedenis</span> — je ziet wat er nu speelt</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PRO -->
+                <div class="relative bg-gray-950 rounded-3xl p-8 lg:p-10 flex flex-col shadow-[0_30px_70px_-25px_rgba(17,17,17,0.5)] overflow-hidden">
+                    <div class="absolute -top-24 -right-20 w-72 h-72 rounded-full bg-app-accent/15 blur-[80px] pointer-events-none"></div>
+                    <div class="relative flex items-baseline justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <h3 class="text-2xl font-bold text-white">Pro</h3>
+                            <span class="text-[11px] font-bold uppercase tracking-wide text-gray-900 bg-app-accent rounded-full px-2.5 py-1">Meest gekozen</span>
+                        </div>
+                    </div>
+                    <div class="relative mt-4 flex items-end gap-2">
+                        <span class="text-5xl font-bold tracking-tight text-white">€7,99</span>
+                        <span class="text-gray-400 mb-1.5">/ maand</span>
+                    </div>
+                    <p class="relative mt-1.5 text-[14px] text-app-accent font-medium">of €79 per jaar — 2 maanden gratis</p>
+                    <p class="relative mt-4 text-[15px] text-gray-400 leading-relaxed">
+                        Beeylo zorgt dat je nooit meer iets mist. Alle intelligentie die op de achtergrond voor je meedenkt.
+                    </p>
+
+                    <a href="#download" class="relative mt-7 w-full inline-flex items-center justify-center h-12 rounded-full bg-app-accent text-gray-900 font-semibold hover:brightness-105 transition-all shadow-lg shadow-app-accent/20">
+                        Probeer Pro
+                    </a>
+
+                    <div class="relative mt-8 pt-8 border-t border-white/10 flex-1">
+                        <p class="text-[13px] font-semibold text-gray-400 uppercase tracking-wide mb-4">Alles uit Gratis, plus</p>
+                        <ul class="space-y-3.5">
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">4 weken mailgeschiedenis</span> — een volledig beeld van wat er speelt</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Automatische herinneringen</span> — vervaldatums, afspraken en deadlines worden vanzelf gesignaleerd</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Eigen herinneringen</span> — jij bepaalt wanneer je aan een bericht herinnerd wordt</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Kaarten vastzetten</span> — houd belangrijke berichten bovenaan tot jij ze weghaalt</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Smart Thread</span> — gerelateerde mails gebundeld met een groeiende tijdlijn</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Automatische agenda</span> — alles wat is bijgehouden in één overzicht</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-[14px] text-gray-400 mt-8 reveal">Geen creditcard nodig om te beginnen. Stop wanneer je wil.</p>
         </div>
     </section>
 
