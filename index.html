@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beeylo — 90% van je inbox is ruis. Wij filteren het weg.</title>
-    <meta name="description" content="Beeylo haalt alles wat belangrijk is uit je inbox en zet het om in duidelijke acties. Nooit meer iets missen, nooit meer zoeken in je mail.">
+    <title>Beeylo · 90% van je inbox is ruis. Wij halen eruit wat telt.</title>
+    <meta name="description" content="Beeylo haalt eruit wat belangrijk is en zet het overzichtelijk voor je neer. Zodat je nooit meer iets mist en nooit meer hoeft te zoeken.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Inter = body. Open Sans = sectie-titels in de app. Manrope = Buddy/welcome.
@@ -29,13 +29,6 @@
         }
         .reveal-d1 { transition-delay: 0.08s; }
         .reveal-d2 { transition-delay: 0.16s; }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
 
         /* iPhone-achtig device frame uit de app screenshots */
         .phone-frame {
@@ -74,7 +67,7 @@
             border-radius: 16px;
             box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
         }
-        /* _Section titel — Open Sans 21 w800 ls -0.44 */
+        /* _Section titel - Open Sans 21 w800 ls -0.44 */
         .app-section-title {
             font-family: 'Open Sans', sans-serif;
             font-size: 19px;
@@ -83,11 +76,11 @@
             color: #111111;
             line-height: 1.1;
         }
-        /* _CountPill — #F2F2F2 radius 8, tekst #555 w700 */
+        /* _CountPill in de mockups = zwarte bol met witte tekst (zie screenshots) */
         .app-count-pill {
-            background: #F2F2F2;
-            color: #555555;
-            border-radius: 8px;
+            background: #111111;
+            color: #ffffff;
+            border-radius: 999px;
             font-weight: 700;
             letter-spacing: -0.14px;
         }
@@ -95,14 +88,14 @@
         .app-company { color: #555555; letter-spacing: -0.13px; }
         .app-time    { color: #9A9A9A; letter-spacing: -0.12px; }
         /* card_headline */
-        .app-headline { color: #111111; letter-spacing: -0.15px; line-height: 1.4; }
-        /* circle icon-button (pin/check) — wit, border #E2E2E2, icon #333 */
+        .app-headline { color: #111111; letter-spacing: -0.15px; line-height: 1.35; }
+        /* circle icon-button (pin/check) - wit, border #E2E2E2, icon #333 */
         .app-circle-btn {
             background: #ffffff;
             border: 1px solid #E2E2E2;
             color: #333333;
         }
-        /* CTA-pill — wit, border #E2E2E2, radius 22, tekst #111 */
+        /* CTA-pill - wit, border #E2E2E2, radius 22, tekst #111 */
         .app-cta-pill {
             background: #ffffff;
             border: 1px solid #E2E2E2;
@@ -110,23 +103,66 @@
             color: #111111;
             letter-spacing: -0.13px;
         }
-        /* Hero-card tag-pill + ETA-box — crème #FEF8E7 */
+        /* Hero-card tag-pill + ETA-box - crème #FEF8E7 */
         .app-tag-pill { background: #FEF8E7; color: #C88A1A; border-radius: 6px; letter-spacing: 0.7px; }
         .app-eta-box  { background: #FEF8E7; border-radius: 14px; }
-        /* Buddy user-bubble #1F2937 */
-        .buddy-user { background: #1F2937; color: #ffffff; }
-        /* Buddy input-bar */
-        .buddy-input {
-            background: #ffffff;
-            border: 1px solid rgba(171, 179, 183, 0.4);
-            border-radius: 24px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
-        }
-        /* Zoekbalk home — wit radius 34 */
+        /* Zoekbalk home - wit radius 34 */
         .app-search {
             background: #ffffff;
             border-radius: 34px;
             box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ====== Image 6: de gele "rust"-bol - animatie van een lege inbox ====== */
+        /* Gebaseerd op de empty-state accent #F5B400 uit home_page_v2.dart, maar als
+           grote glossy bol met zachte glow + rustige zweef/adem-animatie. */
+        .sun-ball {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 34% 30%, #FFE07A 0%, #FFC93C 34%, #F5B400 70%, #E8A200 100%);
+            box-shadow:
+                0 0 0 0 rgba(245, 180, 0, 0.0),
+                0 18px 40px -10px rgba(245, 180, 0, 0.45);
+            animation: ball-float 6s ease-in-out infinite;
+        }
+        /* Stralende halo eromheen */
+        .sun-ball::before {
+            content: "";
+            position: absolute;
+            inset: -46px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245,180,0,0.30) 0%, rgba(245,180,0,0.10) 45%, rgba(245,180,0,0) 70%);
+            animation: ball-glow 6s ease-in-out infinite;
+            z-index: -1;
+        }
+        @keyframes ball-float {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-14px); }
+        }
+        @keyframes ball-glow {
+            0%, 100% { opacity: 0.85; transform: scale(1); }
+            50%      { opacity: 1;    transform: scale(1.08); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .sun-ball, .sun-ball::before { animation: none; }
+        }
+
+        /* Knipperende cursor achter de getypte zoekterm */
+        .search-caret {
+            display: inline-block;
+            width: 1.5px;
+            height: 1em;
+            margin-left: 1px;
+            vertical-align: -2px;
+            background: #2B3437;
+            animation: caret-blink 1.1s step-end infinite;
+        }
+        @keyframes caret-blink {
+            0%, 50%  { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         .phone-before { filter: grayscale(0.25) brightness(0.99); }
@@ -168,7 +204,7 @@
     <!-- ============================================================= -->
     <!-- HERO                                                           -->
     <!-- ============================================================= -->
-    <section class="relative pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+    <section class="relative pt-36 pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden -z-10 pointer-events-none">
             <div class="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-brand-500/10 blur-[120px]"></div>
             <div class="absolute top-[30%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-500/5 blur-[100px]"></div>
@@ -176,11 +212,11 @@
 
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center reveal active">
             <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter text-gray-900 mb-8 leading-[1.05]">
-                90% van je inbox<br class="hidden sm:block"> is ruis.
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">Wij filteren het weg.</span>
+                90% van je inbox<br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">is ruis.</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Beeylo haalt alles wat belangrijk is uit je inbox en zet het om in duidelijke acties. Zodat je nooit meer iets mist — en nooit meer hoeft te zoeken in je mail.
+                Beeylo haalt eruit wat belangrijk is en zet het overzichtelijk voor je neer. Zodat je nooit meer iets mist, en nooit meer hoeft te zoeken.
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -217,286 +253,204 @@
                 </p>
             </div>
         </div>
+    </section>
 
-        <!-- Before / After -->
-        <div class="max-w-5xl mx-auto px-6 lg:px-8 mt-20 reveal">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6 items-start">
+    <!-- ============================================================= -->
+    <!-- SECTION: Ergens hiertussen staat die ene factuur (Image 2)     -->
+    <!-- De ruis: losse, rommelige mails - met die ene factuur erin.    -->
+    <!-- ============================================================= -->
+    <section class="py-24 lg:py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
 
-                <!-- NU: rommelige inbox (generieke mailclient, bewust géén Beeylo) -->
-                <div class="flex flex-col items-center">
-                    <div class="inline-flex items-center gap-2 mb-5 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200">
-                        <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
-                        <span class="text-[13px] font-semibold text-gray-500 tracking-tight">Je inbox nu</span>
-                    </div>
-                    <div class="phone-frame phone-before w-[260px]">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen h-[540px] bg-white">
-                            <div class="pt-12 px-4 pb-3 border-b border-gray-100">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[17px] font-bold text-gray-800">Inbox</span>
-                                    <span class="text-[12px] font-semibold text-gray-400">1.248 ongelezen</span>
-                                </div>
-                            </div>
-                            <div class="divide-y divide-gray-100">
-                                <div class="px-4 py-3 flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-full bg-pink-100 text-pink-500 text-xs font-bold flex items-center justify-center flex-shrink-0">%</div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-[13px] font-bold text-gray-800 truncate">🎉 50% KORTING — alleen vandaag!</div>
-                                        <div class="text-[12px] text-gray-400 truncate">Mis deze deal niet, shop nu en...</div>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-3 flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-500 text-xs font-bold flex items-center justify-center flex-shrink-0">N</div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-[13px] font-semibold text-gray-700 truncate">Nieuwsbrief: 10 tips voor het...</div>
-                                        <div class="text-[12px] text-gray-400 truncate">Beste lezer, in deze editie...</div>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-3 flex items-center gap-3 bg-white">
-                                    <div class="w-9 h-9 rounded-full bg-[#0A56C2] text-white text-[10px] font-extrabold flex items-center justify-center flex-shrink-0">bol.</div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-[13px] font-bold text-gray-900 truncate">Factuur september — € 29,95</div>
-                                        <div class="text-[12px] text-gray-400 truncate">Betaal vóór de vervaldatum...</div>
-                                    </div>
-                                    <span class="w-2 h-2 rounded-full bg-app-accent flex-shrink-0"></span>
-                                </div>
-                                <div class="px-4 py-3 flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-full bg-rose-100 text-rose-500 text-xs font-bold flex items-center justify-center flex-shrink-0">♥</div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-[13px] font-semibold text-gray-700 truncate">Je hebt 3 nieuwe meldingen</div>
-                                        <div class="text-[12px] text-gray-400 truncate">Kom terug en bekijk wat je...</div>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-3 flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-600 text-xs font-bold flex items-center justify-center flex-shrink-0">★</div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-[13px] font-semibold text-gray-700 truncate">Laatste kans: jouw cadeau wacht</div>
-                                        <div class="text-[12px] text-gray-400 truncate">Open nu om te claimen...</div>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-3 flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-full bg-sky-100 text-sky-500 text-xs font-bold flex items-center justify-center flex-shrink-0">in</div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-[13px] font-semibold text-gray-700 truncate">5 mensen bekeken je profiel</div>
-                                        <div class="text-[12px] text-gray-400 truncate">Upgrade om te zien wie...</div>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-3 flex items-center gap-3 opacity-80">
-                                    <div class="w-9 h-9 rounded-full bg-green-100 text-green-600 text-xs font-bold flex items-center justify-center flex-shrink-0">%</div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-[13px] font-semibold text-gray-700 truncate">Black Friday begint nu 🔥</div>
-                                        <div class="text-[12px] text-gray-400 truncate">Tot 70% korting op alles...</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-                        </div>
-                    </div>
-                    <p class="text-[13px] text-gray-400 mt-5 max-w-[240px] text-center">Ergens hiertussen staat die ene factuur. Veel plezier met zoeken.</p>
+                <!-- Tekst links -->
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.05] mb-7">
+                        Ergens hiertussen staat die ene factuur.
+                    </h2>
+                    <p class="text-lg text-gray-500 max-w-md leading-relaxed">
+                        Reclame, nieuwsbrieven, meldingen, aanbiedingen. Elke dag tientallen mails, en daartussen het ene bericht dat er echt toe doet.
+                    </p>
                 </div>
 
-                <!-- MET BEEYLO: echte home (home_page_v2.dart) -->
-                <div class="flex flex-col items-center">
-                    <div class="inline-flex items-center gap-2 mb-5 px-3.5 py-1.5 rounded-full bg-app-accent/10 border border-app-accent/30">
-                        <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span>
-                        <span class="text-[13px] font-semibold text-app-accentDark tracking-tight">Met Beeylo</span>
-                    </div>
-                    <div class="phone-frame w-[260px]">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen h-[540px] app-bg">
-                            <!-- TopbarV2: logo links, bel/agenda/mail/avatar rechts -->
-                            <div class="pt-12 px-4 pb-2 flex items-center justify-between app-bg">
-                                <div class="flex items-center gap-1.5">
-                                    <img src="logo.png" alt="Beeylo" class="w-6 h-6 object-contain">
-                                    <img src="wordmark.png" alt="Beeylo" class="h-3 object-contain">
-                                </div>
-                                <div class="flex items-center gap-2 text-[#111111]">
-                                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0m6 0H9"/></svg>
-                                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path stroke-linecap="round" d="M3 9.5h18M8 3v3M16 3v3"/></svg>
-                                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 7.5l8.5 6 8.5-6"/></svg>
-                                    <div class="w-7 h-7 rounded-full bg-gradient-to-br from-orange-300 to-pink-400"></div>
-                                </div>
+                <!-- Rommelige mail-stapel rechts -->
+                <div class="reveal reveal-d1">
+                    <div class="space-y-2.5">
+                        <!-- 1 -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
+                            <div class="w-9 h-9 rounded-full bg-pink-100 text-pink-500 text-sm font-bold flex items-center justify-center flex-shrink-0">%</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-bold text-gray-900 truncate">🎉 50% KORTING, alleen vandaag!</div>
+                                <div class="text-[13px] text-gray-400 truncate">Mis deze deal niet, shop nu…</div>
                             </div>
-                            <!-- Zoekbalk -->
-                            <div class="px-4 pt-2 pb-1">
-                                <div class="app-search flex items-center gap-2.5 px-3.5 py-2.5">
-                                    <svg class="w-4 h-4 text-[#8A8A8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4-4"/></svg>
-                                    <span class="text-[12px] text-[#A8A8A8]">Zoek in al je berichten…</span>
-                                </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
+                            <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-500 text-sm font-bold flex items-center justify-center flex-shrink-0">N</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Nieuwsbrief: 10 tips voor het…</div>
+                                <div class="text-[13px] text-gray-400 truncate">Beste lezer, in deze editie…</div>
                             </div>
-                            <!-- Belangrijk -->
-                            <div class="px-4 pt-4 pb-2.5 flex items-center gap-2.5">
-                                <span class="app-section-title">Belangrijk</span>
-                                <span class="app-count-pill h-[20px] min-w-[20px] px-2 inline-flex items-center justify-center text-[12px]">2</span>
+                        </div>
+                        <!-- 3 - die ene factuur, uitgelicht -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border-2 border-app-accent shadow-[0_6px_22px_-6px_rgba(245,180,0,0.45)] px-4 py-3">
+                            <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-600 text-sm font-bold flex items-center justify-center flex-shrink-0">b</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-bold text-gray-900 truncate">Factuur september: € 29,95</div>
+                                <div class="text-[13px] text-gray-400 truncate">Betaal vóór de vervaldatum…</div>
                             </div>
-                            <!-- StackWrap carousel: gekleurde gradient-kaart + peek -->
-                            <div class="pl-4 flex gap-2.5 overflow-hidden">
-                                <!-- _SliderCard (action-button modus) -->
-                                <div class="relative flex-shrink-0 rounded-[20px] overflow-hidden shadow-[0_2px_14px_rgba(0,0,0,0.06)]" style="width:196px;background:linear-gradient(135deg,#0A3E8F,#1A5FCC);">
-                                    <div class="absolute -top-16 -right-14 w-44 h-44 rounded-full border border-white/10"></div>
-                                    <div class="absolute -bottom-20 -left-12 w-52 h-52 rounded-full border border-white/10"></div>
-                                    <div class="relative px-4 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-[30px] h-[30px] rounded-[8px] bg-white text-[#0A56C2] text-[8px] font-extrabold flex items-center justify-center flex-shrink-0">bol.</div>
-                                            <div class="ml-2.5 flex-1 min-w-0">
-                                                <div class="text-[12.5px] font-semibold text-white truncate" style="letter-spacing:-0.13px;">bol.com</div>
-                                                <div class="text-[11px] text-white/70" style="letter-spacing:-0.12px;">2u</div>
-                                            </div>
-                                            <div class="w-[28px] h-[28px] rounded-full bg-black/[0.16] border border-white/[0.18] flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                                        </div>
-                                        <p class="mt-3.5 text-[14px] font-bold text-white leading-[1.3]" style="letter-spacing:-0.18px;">Je factuur van september staat klaar om te betalen</p>
-                                        <div class="mt-4 bg-white rounded-[10px] py-2.5 flex items-center justify-center gap-1.5">
-                                            <span class="text-[13px] font-medium text-[#111111]">Betalen</span>
-                                            <svg class="w-3.5 h-3.5 text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- peek volgende kaart -->
-                                <div class="flex-shrink-0 rounded-[20px] w-14 h-full" style="background:linear-gradient(135deg,#1F7A52,#2FA06B);"></div>
+                        </div>
+                        <!-- 4 -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
+                            <div class="w-9 h-9 rounded-full bg-pink-100 text-pink-500 text-sm font-bold flex items-center justify-center flex-shrink-0">♥</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Je hebt 3 nieuwe meldingen</div>
+                                <div class="text-[13px] text-gray-400 truncate">Kom terug en bekijk wat je…</div>
                             </div>
-                            <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#F8F8F9] to-transparent pointer-events-none"></div>
+                        </div>
+                        <!-- 5 -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
+                            <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-500 text-sm font-bold flex items-center justify-center flex-shrink-0">★</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Laatste kans: jouw cadeau wacht</div>
+                                <div class="text-[13px] text-gray-400 truncate">Open nu om te claimen…</div>
+                            </div>
+                        </div>
+                        <!-- 6 -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
+                            <div class="w-9 h-9 rounded-full bg-sky-100 text-sky-600 text-xs font-bold flex items-center justify-center flex-shrink-0">in</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">5 mensen bekeken je profiel</div>
+                                <div class="text-[13px] text-gray-400 truncate">Upgrade om te zien wie…</div>
+                            </div>
+                        </div>
+                        <!-- 7 -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
+                            <div class="w-9 h-9 rounded-full bg-orange-100 text-orange-500 text-sm font-bold flex items-center justify-center flex-shrink-0">%</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Black Friday begint nu 🔥</div>
+                                <div class="text-[13px] text-gray-400 truncate">Tot 70% korting op alles…</div>
+                            </div>
+                        </div>
+                        <!-- 8 - vervaagd -->
+                        <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3 opacity-45">
+                            <div class="w-9 h-9 rounded-full bg-gray-100 text-gray-400 text-sm font-bold flex items-center justify-center flex-shrink-0">@</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-[14px] font-semibold text-gray-700 truncate">Bevestig je e-mailadres</div>
+                                <div class="text-[13px] text-gray-400 truncate">Klik op de link hieronder…</div>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-[13px] text-gray-500 mt-5 max-w-[240px] text-center">Alleen wat telt. Bovenaan. Met de actie er al bij.</p>
+                    <div class="flex justify-center mt-6">
+                        <span class="inline-flex items-center gap-2 bg-[#111111] text-white rounded-full px-5 py-2.5 text-sm font-semibold shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span>
+                            Ongelezen: 1.248
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================= -->
-    <!-- SECTION: Geen spam / reclame / ruis + echte home              -->
+    <!-- SECTION: Alleen wat telt. Bovenaan. (Image 3)                  -->
+    <!-- Echte home (home_page_v2.dart): Belangrijk-kaart + Updates     -->
     <!-- ============================================================= -->
-    <section class="py-28 lg:py-32 bg-white">
+    <section class="py-28 lg:py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
-                <div class="reveal order-2 lg:order-1">
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-8">
-                        Beeylo organiseert je inbox, zodat je direct ziet wat belangrijk is.
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3.5">
-                            <span class="w-7 h-7 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                            <span class="text-lg font-medium text-gray-800">Geen spam</span>
-                        </div>
-                        <div class="flex items-center gap-3.5">
-                            <span class="w-7 h-7 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                            <span class="text-lg font-medium text-gray-800">Geen reclame</span>
-                        </div>
-                        <div class="flex items-center gap-3.5">
-                            <span class="w-7 h-7 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                            <span class="text-lg font-medium text-gray-800">Geen onnodige berichten</span>
-                        </div>
-                    </div>
-                    <p class="text-base text-gray-500 mt-8 max-w-md leading-relaxed">
-                        Wat overblijft? Je bestellingen, facturen, afspraken en officiële post — netjes op een rij, met de actie er al bij.
-                    </p>
-                </div>
-
-                <!-- Echte home, volledige feed -->
-                <div class="reveal reveal-d1 order-1 lg:order-2 flex justify-center">
+                <!-- Echte home, telefoon links -->
+                <div class="reveal flex justify-center order-1">
                     <div class="phone-frame w-[300px]">
                         <div class="phone-notch"></div>
                         <div class="phone-screen h-[620px] app-bg">
+                            <!-- TopbarV2: logo links, mail/bel/avatar rechts -->
                             <div class="pt-12 px-4 pb-2 flex items-center justify-between app-bg">
                                 <div class="flex items-center gap-1.5">
                                     <img src="logo.png" alt="Beeylo" class="w-7 h-7 object-contain">
                                     <img src="wordmark.png" alt="Beeylo" class="h-3.5 object-contain">
                                 </div>
                                 <div class="flex items-center gap-2.5 text-[#111111]">
-                                    <svg class="w-[19px] h-[19px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0m6 0H9"/></svg>
-                                    <svg class="w-[19px] h-[19px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path stroke-linecap="round" d="M3 9.5h18M8 3v3M16 3v3"/></svg>
                                     <svg class="w-[19px] h-[19px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 7.5l8.5 6 8.5-6"/></svg>
-                                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-300 to-pink-400"></div>
+                                    <svg class="w-[19px] h-[19px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0m6 0H9"/></svg>
+                                    <div class="w-7 h-7 rounded-full bg-app-accentDark flex items-center justify-center text-[12px] font-bold text-white">D</div>
                                 </div>
                             </div>
-                            <div class="px-4 pt-2 pb-1">
-                                <div class="app-search flex items-center gap-2.5 px-4 py-2.5">
-                                    <svg class="w-4 h-4 text-[#8A8A8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4-4"/></svg>
-                                    <span class="text-[12.5px] text-[#A8A8A8]">Zoek in al je berichten…</span>
-                                </div>
-                            </div>
-                            <!-- Belangrijk: StackWrap carousel (strip-modus, gebundelde chain) -->
-                            <div class="px-4 pt-4 pb-2.5 flex items-center gap-2.5">
+
+                            <!-- Belangrijk -->
+                            <div class="px-4 pt-4 pb-3 flex items-center gap-2.5">
                                 <span class="app-section-title" style="font-size:21px;">Belangrijk</span>
-                                <span class="app-count-pill h-[22px] min-w-[22px] px-2 inline-flex items-center justify-center text-[13px]">3</span>
+                                <span class="app-count-pill h-[22px] min-w-[22px] px-1.5 inline-flex items-center justify-center text-[12px]">2</span>
                             </div>
-                            <div class="pl-4 flex gap-2.5 overflow-hidden">
-                                <!-- _SliderCard (strip-modus: N berichten) -->
-                                <div class="relative flex-shrink-0 rounded-[20px] overflow-hidden shadow-[0_2px_14px_rgba(0,0,0,0.06)]" style="width:240px;background:linear-gradient(135deg,#0A3E8F,#1A5FCC);">
-                                    <div class="absolute -top-16 -right-12 w-44 h-44 rounded-full border border-white/10"></div>
-                                    <div class="absolute -bottom-24 -left-10 w-56 h-56 rounded-full border border-white/10"></div>
-                                    <div class="relative px-5 py-4.5" style="padding:18px 20px;">
+                            <!-- _SliderCard (action-button modus) -->
+                            <div class="px-4">
+                                <div class="relative rounded-[20px] overflow-hidden shadow-[0_2px_14px_rgba(0,0,0,0.06)]" style="background:linear-gradient(135deg,#0A3E8F,#1A5FCC);">
+                                    <div class="absolute -top-16 -right-14 w-44 h-44 rounded-full border border-white/10"></div>
+                                    <div class="absolute -bottom-20 -left-12 w-52 h-52 rounded-full border border-white/10"></div>
+                                    <div class="relative px-5 py-4">
                                         <div class="flex items-center">
                                             <div class="w-[34px] h-[34px] rounded-[8px] bg-white text-[#0A56C2] text-[9px] font-extrabold flex items-center justify-center flex-shrink-0">bol.</div>
                                             <div class="ml-2.5 flex-1 min-w-0">
                                                 <div class="text-[13px] font-semibold text-white truncate" style="letter-spacing:-0.13px;">bol.com</div>
                                                 <div class="text-[12px] text-white/70" style="letter-spacing:-0.12px;">2u</div>
                                             </div>
-                                            <div class="w-[30px] h-[30px] rounded-full bg-black/[0.16] border border-white/[0.18] flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
                                         </div>
-                                        <p class="mt-4 text-[15px] font-bold text-white leading-[1.3]" style="letter-spacing:-0.18px;">Je bestelling is onderweg naar je toe</p>
-                                        <div class="mt-4 flex justify-end">
-                                            <span class="text-[10px] font-medium text-white/85 bg-white/[0.16] rounded-lg px-1.5 py-0.5">4 berichten</span>
-                                        </div>
-                                        <div class="mt-1.5 space-y-2">
-                                            <div class="flex items-center">
-                                                <span class="w-[5px] h-[5px] rounded-full bg-white/55 flex-shrink-0"></span>
-                                                <span class="ml-2.5 flex-1 text-[12.5px] font-medium text-white/95 truncate" style="letter-spacing:-0.12px;">Pakket onderweg</span>
-                                                <span class="text-[10.5px] text-white/65">14:20</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <span class="w-[5px] h-[5px] rounded-full bg-white/55 flex-shrink-0"></span>
-                                                <span class="ml-2.5 flex-1 text-[12.5px] font-medium text-white/95 truncate" style="letter-spacing:-0.12px;">Bezorging gepland</span>
-                                                <span class="text-[10.5px] text-white/65">Gisteren</span>
-                                            </div>
+                                        <p class="mt-3.5 text-[16px] font-bold text-white leading-[1.3]" style="letter-spacing:-0.18px;">Je factuur van september staat klaar om te betalen</p>
+                                        <div class="mt-4 bg-white rounded-[10px] py-3 flex items-center justify-center gap-1.5">
+                                            <span class="text-[14px] font-medium text-[#111111]">Betalen</span>
+                                            <svg class="w-3.5 h-3.5 text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- peek volgende kaart -->
-                                <div class="flex-shrink-0 rounded-[20px] w-12" style="background:linear-gradient(135deg,#1F7A52,#2FA06B);"></div>
                             </div>
+
                             <!-- Updates -->
-                            <div class="px-5 pt-5 pb-2.5 flex items-center gap-2.5">
+                            <div class="px-4 pt-6 pb-3 flex items-center gap-2.5">
                                 <span class="app-section-title" style="font-size:21px;">Updates</span>
-                                <span class="app-count-pill h-[22px] min-w-[22px] px-2 inline-flex items-center justify-center text-[13px]">3</span>
+                                <span class="app-count-pill h-[22px] min-w-[22px] px-1.5 inline-flex items-center justify-center text-[12px]">3</span>
                             </div>
-                            <div class="px-5 space-y-2.5">
-                                <div class="app-card pt-3.5 pr-3 pb-3.5 pl-3.5">
+                            <div class="px-4 space-y-2.5">
+                                <div class="app-card px-3.5 py-3">
                                     <div class="flex items-center">
                                         <div class="w-6 h-6 rounded-md bg-gradient-to-br from-red-500 to-amber-400 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0">G</div>
                                         <span class="ml-2 flex-1 text-[12.5px] app-company truncate">Google</span>
                                         <span class="text-[12px] app-time">9m</span>
                                     </div>
-                                    <p class="mt-2.5 text-[14px] font-semibold app-headline">Nieuwe inlog op je account vanaf een onbekend apparaat</p>
-                                    <div class="flex items-center mt-3.5">
-                                        <span class="app-circle-btn w-[28px] h-[28px] rounded-full flex items-center justify-center"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-4-7 4V5z"/></svg></span>
-                                        <span class="app-circle-btn w-[28px] h-[28px] rounded-full flex items-center justify-center ml-1.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                                        <span class="flex-1"></span>
-                                        <span class="app-cta-pill inline-flex items-center gap-1 px-3.5 py-2 text-[13px]">Bekijken<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                                    </div>
+                                    <p class="mt-2 text-[14px] font-semibold app-headline">Nieuwe inlog op je account</p>
                                 </div>
-                                <div class="app-card pt-3.5 pr-3 pb-3.5 pl-3.5">
+                                <div class="app-card px-3.5 py-3">
                                     <div class="flex items-center">
                                         <div class="w-6 h-6 rounded-md bg-[#FFC917] text-[#001A4D] text-[8px] font-extrabold flex items-center justify-center flex-shrink-0">NS</div>
                                         <span class="ml-2 flex-1 text-[12.5px] app-company truncate">NS</span>
                                         <span class="text-[12px] app-time">3u</span>
                                     </div>
-                                    <p class="mt-2.5 text-[14px] font-semibold app-headline">Je hebt een nieuwe reis gepland naar Amsterdam Centraal</p>
+                                    <p class="mt-2 text-[14px] font-semibold app-headline">Je reis naar Amsterdam is gepland</p>
                                 </div>
                             </div>
-                            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#F8F8F9] to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#F8F8F9] to-transparent pointer-events-none"></div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Tekst rechts -->
+                <div class="reveal reveal-d1 order-2">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.05] mb-7">
+                        Alleen wat telt.<br>Bovenaan.
+                    </h2>
+                    <p class="text-lg text-gray-500 max-w-md leading-relaxed">
+                        Geen spam. Geen reclame. Geen onnodige berichten. Wat overblijft zijn je bestellingen, facturen, afspraken en officiële post, netjes op een rij, met de actie er al bij.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================= -->
-    <!-- SECTION: Buddy (assistant_page.dart)                           -->
+    <!-- SECTION: Zoeken (search_page.dart)                             -->
+    <!-- Typ wat je zoekt → meteen het juiste ticket.                   -->
     <!-- ============================================================= -->
-    <section class="py-28 lg:py-32 bg-gray-50">
+    <section class="py-28 lg:py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
@@ -504,207 +458,182 @@
                     <div class="phone-frame w-[300px]">
                         <div class="phone-notch"></div>
                         <div class="phone-screen h-[620px] app-bg flex flex-col">
-                            <!-- _V2AppBar: "Buddy" 32 w500 -->
-                            <div class="pt-12 px-5 pb-3 flex items-center app-bg">
-                                <span class="flex-1 text-[28px] font-medium text-[#111111]" style="letter-spacing:-1.02px;">Buddy</span>
-                                <span class="w-9 h-9 rounded-full bg-white border border-[#EEEEEE] flex items-center justify-center"><svg class="w-4 h-4 text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h10"/></svg></span>
+                            <!-- AppBar: "Zoeken" - Manrope 23 w800 -->
+                            <div class="pt-12 px-5 pb-3 app-bg">
+                                <span class="text-[23px] font-extrabold text-[#2B3437]" style="font-family:'Manrope',sans-serif;letter-spacing:-1px;">Zoeken</span>
                             </div>
 
-                            <!-- Chat -->
-                            <div class="flex-1 px-5 py-4 space-y-3.5 overflow-hidden">
-                                <!-- user bubble #1F2937 -->
-                                <div class="flex justify-end">
-                                    <div class="buddy-user px-4 py-3 max-w-[78%]" style="border-radius:20px 20px 4px 20px;">
-                                        <p class="text-[13px] leading-[1.4]">Wat was mijn ordernummer bij Coolblue?</p>
-                                    </div>
+                            <!-- BeeyloSearchBar: #F1F4F6, radius 16, met getypte query -->
+                            <div class="px-5">
+                                <div class="flex items-center gap-2.5 bg-[#F1F4F6] rounded-[16px] px-3.5 py-3">
+                                    <svg class="w-5 h-5 text-[#737C7F] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4-4"/></svg>
+                                    <span class="flex-1 text-[14px] font-medium text-[#2B3437]">coolblue<span class="search-caret"></span></span>
+                                    <svg class="w-[18px] h-[18px] text-[#737C7F] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
                                 </div>
-                                <!-- assistant: kale tekst links -->
-                                <div class="px-0.5">
-                                    <p class="text-[13px] text-[#2B3437] leading-[1.55]">Dat is <span class="font-semibold">3HV4N3‑90210</span> — bij je sneaker-bestelling:</p>
-                                </div>
-                                <!-- AssistantInlineTicket -->
-                                <div class="app-card pt-3.5 pr-3 pb-3.5 pl-3.5">
+                            </div>
+
+                            <!-- Category chips -->
+                            <div class="px-5 pt-3.5 flex gap-2 overflow-hidden">
+                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-[#2B3437] text-white text-[12px] font-semibold whitespace-nowrap">Bestellingen</span>
+                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-white border border-[rgba(171,179,183,0.45)] text-[#2B3437] text-[12px] font-semibold whitespace-nowrap">Facturen</span>
+                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-white border border-[rgba(171,179,183,0.45)] text-[#2B3437] text-[12px] font-semibold whitespace-nowrap">Afspraken</span>
+                            </div>
+
+                            <!-- Resultaten -->
+                            <div class="px-5 pt-5">
+                                <span class="text-[15px] font-extrabold text-[#2B3437]" style="font-family:'Manrope',sans-serif;letter-spacing:-0.5px;">2 resultaten</span>
+                            </div>
+                            <div class="px-5 pt-3 space-y-2">
+                                <!-- ActionTicketCard - order -->
+                                <div class="bg-white rounded-[12px] shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3">
                                     <div class="flex items-center">
-                                        <div class="w-6 h-6 rounded-md bg-[#0090E3] text-white text-[8px] font-extrabold flex items-center justify-center flex-shrink-0">cb</div>
-                                        <span class="ml-2 flex-1 text-[12.5px] app-company truncate">Coolblue</span>
-                                        <span class="text-[12px] app-time">1d</span>
+                                        <div class="w-[30px] h-[30px] rounded-full bg-[#0090E3] text-white text-[9px] font-extrabold flex items-center justify-center flex-shrink-0">cb</div>
+                                        <span class="ml-2 flex-1 text-[14px] font-bold text-[#2B3437] truncate">Coolblue</span>
+                                        <span class="w-2 h-2 rounded-full bg-app-accent flex-shrink-0"></span>
                                     </div>
-                                    <p class="mt-2.5 text-[14px] font-semibold app-headline">Nieuwe sneakers — onderweg naar je toe</p>
-                                    <div class="flex items-center mt-3.5">
-                                        <span class="flex-1"></span>
-                                        <span class="app-cta-pill inline-flex items-center gap-1 px-3.5 py-2 text-[13px]">Volg pakket<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                                    <p class="mt-2 text-[14px] font-semibold text-[#2B3437] truncate">Nieuwe sneakers, onderweg naar je toe</p>
+                                    <p class="mt-1 text-[13px] text-[#586064] truncate">Ordernummer 3HV4N3‑90210</p>
+                                    <div class="flex items-center justify-between mt-2.5">
+                                        <span class="flex items-center gap-1 text-[11px] text-[#586064]"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8v4l3 2"/></svg>1d</span>
+                                        <span class="text-white text-[11px] font-semibold px-2.5 py-1 rounded-[6px]" style="background:rgba(255,111,0,0.9);">Bekijk bestelling</span>
+                                    </div>
+                                </div>
+                                <!-- ActionTicketCard - factuur -->
+                                <div class="bg-white rounded-[12px] shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3">
+                                    <div class="flex items-center">
+                                        <div class="w-[30px] h-[30px] rounded-full bg-[#0A56C2] text-white text-[8px] font-extrabold flex items-center justify-center flex-shrink-0">bol.</div>
+                                        <span class="ml-2 flex-1 text-[14px] font-medium text-[#2B3437] truncate">bol.com</span>
+                                    </div>
+                                    <p class="mt-2 text-[14px] font-medium text-[#2B3437] truncate">Factuur september: € 29,95</p>
+                                    <p class="mt-1 text-[13px] text-[#586064] truncate">Betaal vóór de vervaldatum</p>
+                                    <div class="flex items-center justify-between mt-2.5">
+                                        <span class="flex items-center gap-1 text-[11px] text-[#586064]"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8v4l3 2"/></svg>3d</span>
+                                        <span class="text-white text-[11px] font-semibold px-2.5 py-1 rounded-[6px]" style="background:rgba(43,52,55,0.9);">Bekijk factuur</span>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- AssistantInputBar -->
-                            <div class="px-5 pb-7 pt-2 app-bg">
-                                <div class="buddy-input flex items-center gap-2 pl-5 pr-2 py-2">
-                                    <span class="flex-1 text-[13px] text-[#757575]">Vraag iets aan Beeylo...</span>
-                                    <button class="w-10 h-10 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-[18px] h-[18px] text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></svg>
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#F8F8F9] to-transparent pointer-events-none"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal reveal-d1">
                     <span class="inline-flex items-center gap-1.5 text-[13px] font-bold text-app-accentDark tracking-tight uppercase mb-5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span> Buddy
+                        <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span> Zoeken
                     </span>
                     <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
-                        Op zoek naar een mail?<br>Vraag het gewoon.
+                        Op zoek naar een mail?<br>Typ gewoon waar het over ging.
                     </h2>
                     <p class="text-lg text-gray-500 max-w-md leading-relaxed">
-                        Geen mappen, geen zoektermen, geen eindeloos scrollen. Vertel Buddy wat je zoekt en je hebt het meteen — ordernummers, facturen, codes, afspraken.
+                        Geen mappen, geen exacte zoektermen, geen drie pagina's terugscrollen. Typ een bedrijf of waar het over ging, en je hebt het meteen: ordernummers, facturen, codes en afspraken.
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============================================================= -->
-    <!-- SECTION: 5 → 1 (TicketHeroCard uit ticket_detail_v2)          -->
-    <!-- ============================================================= -->
-    <section class="py-28 lg:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center reveal">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-4">
-                Alles wat bij elkaar hoort,<br class="hidden md:block"> in één overzicht.
-            </h2>
-            <p class="text-lg text-gray-500 mb-16">Vijf losse mails per bestelling worden één overzichtelijke kaart.</p>
-
-            <div class="flex flex-col items-center justify-center gap-8 relative max-w-3xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 w-full">
-                    <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 text-left text-xs opacity-70">
-                        <span class="font-semibold text-gray-800 block truncate">Orderbevestiging</span>
-                        <span class="text-gray-400 truncate block">Bedankt voor je bestelling...</span>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 text-left text-xs opacity-80">
-                        <span class="font-semibold text-gray-800 block truncate">Pakket ingepakt</span>
-                        <span class="text-gray-400 truncate block">We hebben je bestelling...</span>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 text-left text-xs">
-                        <span class="font-semibold text-gray-800 block truncate">Track &amp; Trace</span>
-                        <span class="text-gray-400 truncate block">Je pakket is onderweg...</span>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 text-left text-xs opacity-80">
-                        <span class="font-semibold text-gray-800 block truncate">Bezorging morgen</span>
-                        <span class="text-gray-400 truncate block">Tussen 14:00 en 16:00...</span>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 text-left text-xs opacity-70">
-                        <span class="font-semibold text-gray-800 block truncate">Factuur PDF</span>
-                        <span class="text-gray-400 truncate block">Je factuur staat klaar...</span>
-                    </div>
-                </div>
-
-                <svg class="w-10 h-10 text-gray-300 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-
-                <!-- TicketHeroCard: wit radius20, border #F0F0F0, padding 13 -->
-                <div class="bg-white rounded-[20px] border border-[#F0F0F0] shadow-[0_2px_14px_rgba(0,0,0,0.05)] w-full max-w-sm text-left z-10" style="padding:13px;">
-                    <div class="flex gap-3.5 items-start">
-                        <div class="w-[84px] h-[84px] rounded-[14px] bg-gray-100 flex items-center justify-center text-5xl flex-shrink-0">👟</div>
-                        <div class="flex-1 min-w-0">
-                            <span class="app-tag-pill inline-block px-2 py-1 text-[10px] font-bold">VANDAAG</span>
-                            <h3 class="text-[18px] font-semibold text-[#111111] leading-[1.15] mt-2.5" style="letter-spacing:-0.54px;">Nieuwe Sneakers</h3>
-                            <div class="flex items-center gap-2.5 mt-3">
-                                <div class="w-[30px] h-[30px] rounded-full bg-[#0090E3] flex items-center justify-center text-[10px] font-extrabold text-white">cb</div>
-                                <span class="text-[13px] font-medium text-[#111111] truncate" style="letter-spacing:-0.135px;">Coolblue</span>
-                            </div>
-                            <!-- ETA-box crème #FEF8E7 -->
-                            <div class="app-eta-box flex items-center gap-2.5 mt-2.5" style="padding:9px 13px;">
-                                <svg width="19" height="19" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#C88A1A" stroke-width="1.6" fill="none"/><path d="M10 5 L10 10 L13 12" stroke="#C88A1A" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
-                                <div class="min-w-0">
-                                    <div class="text-[11px] text-[#A07A0A] leading-tight">Verwachte bezorging</div>
-                                    <div class="text-[13.5px] font-bold text-[#111111] leading-tight">Morgen 14:00 – 16:00</div>
-                                </div>
+                    <!-- Subtiele knipoog: zoeken in je gewone mail -->
+                    <div class="mt-9 max-w-sm">
+                        <span class="text-[12px] font-semibold text-gray-400 uppercase tracking-wide">Zoeken in je gewone mail</span>
+                        <div class="mt-2 flex items-center gap-3 bg-gray-100 rounded-2xl px-4 py-3">
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4-4M8.5 8.5l5 5M13.5 8.5l-5 5"/></svg>
+                            <div class="min-w-0">
+                                <div class="text-[13.5px] font-medium text-gray-500 truncate">"factuur coolblue augustus pdf betaald?"</div>
+                                <div class="text-[12.5px] text-gray-400">0 resultaten. Scroll maar weer terug 😮‍💨</div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-[13px] text-[#555555] mt-3 leading-[1.4]">Je bestelling is onderweg. Je hoeft niets te doen — we laten het weten zodra het pakket bezorgd is.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================= -->
-    <!-- SECTION: Jij hebt de sleutel                                   -->
+    <!-- SECTION: Alles wat bij elkaar hoort (Image 4)                  -->
+    <!-- 5 losse mails → één levende kaart met verticale tijdlijn       -->
+    <!-- (ticket_timeline.dart: bullet links, datum rechts)             -->
     <!-- ============================================================= -->
-    <section class="py-28 lg:py-32 bg-gray-900 text-white">
-        <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-            <div class="reveal">
-                <div class="w-16 h-16 mx-auto mb-8 rounded-2xl bg-app-accent flex items-center justify-center shadow-2xl shadow-app-accent/30">
-                    <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
-                </div>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
-                    Jij hebt de sleutel.
+    <section class="py-28 lg:py-32 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center reveal mb-16">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-5 leading-[1.05]">
+                    Alles wat bij elkaar hoort,<br class="hidden md:block"> in één overzicht.
                 </h2>
-                <p class="text-lg text-gray-400 max-w-xl mx-auto mb-14">
-                    Je inbox is privé. Bij Beeylo blijft dat zo — geen uitzonderingen, geen kleine lettertjes.
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                    Vijf losse mails over één bestelling worden één levende kaart. De tijdlijn groeit mee met elke update, zodat je in één blik ziet waar het staat.
                 </p>
             </div>
 
-            <div class="reveal reveal-d1 max-w-xl mx-auto space-y-4 text-left">
-                <div class="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
-                    <span class="w-6 h-6 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <p class="text-[15.5px] text-gray-200 leading-snug"><span class="font-semibold text-white">Versleuteld opgeslagen</span> — niemand anders komt erbij.</p>
-                </div>
-                <div class="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
-                    <span class="w-6 h-6 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <p class="text-[15.5px] text-gray-200 leading-snug"><span class="font-semibold text-white">Beeylo leest je mails om jóu te helpen</span> — nooit voor iets anders.</p>
-                </div>
-                <div class="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
-                    <span class="w-6 h-6 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <p class="text-[15.5px] text-gray-200 leading-snug"><span class="font-semibold text-white">Stop wanneer je wil</span> — één tap, alles gewist.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-    <!-- ============================================================= -->
-    <!-- CLOSING: rust — inbox zero                                     -->
-    <!-- ============================================================= -->
-    <section class="relative pt-28 lg:pt-36 pb-10 bg-gradient-to-b from-[#FFFDF6] to-white overflow-hidden">
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] rounded-full bg-app-accent/10 blur-[130px] pointer-events-none"></div>
-        <div class="max-w-2xl mx-auto px-6 lg:px-8 text-center relative reveal">
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4 leading-[1.1]">
-                Zo voelt een lege inbox.
-            </h2>
-            <p class="text-lg text-gray-500 mb-16">Niets meer te zoeken, niets meer te missen. Gewoon rust.</p>
+                <!-- Losse mails links + pijl -->
+                <div class="reveal">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
+                            <span class="text-[14px] text-gray-500 truncate">Orderbevestiging: bedankt voor je bestelling</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
+                            <span class="text-[14px] text-gray-500 truncate">We hebben je bestelling ingepakt</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
+                            <span class="text-[14px] text-gray-500 truncate">Track &amp; Trace: je pakket is onderweg</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
+                            <span class="text-[14px] text-gray-500 truncate">Bezorging morgen tussen 14:00 en 16:00</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
+                            <span class="text-[14px] text-gray-500 truncate">Je factuur staat klaar</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-6 lg:hidden">
+                        <svg class="w-7 h-7 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l6-6m-6 6l-6-6"/></svg>
+                    </div>
+                </div>
 
-            <!-- Echte inbox-zero staat (_EmptyHomeBlock / "Je bent helemaal up to date") -->
-            <div class="flex justify-center">
-                <div class="phone-frame w-[280px]">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen h-[560px] app-bg flex flex-col">
-                        <div class="pt-12 px-4 pb-2 flex items-center justify-between app-bg">
-                            <div class="flex items-center gap-1.5">
-                                <img src="logo.png" alt="Beeylo" class="w-7 h-7 object-contain">
-                                <img src="wordmark.png" alt="Beeylo" class="h-3.5 object-contain">
+                <!-- Gouden levende kaart rechts -->
+                <div class="reveal reveal-d1">
+                    <div class="relative rounded-[24px] overflow-hidden shadow-[0_24px_50px_-18px_rgba(176,128,16,0.55)]" style="background:linear-gradient(140deg,#D5A41E 0%,#A47B12 52%,#6E520A 100%);">
+                        <div class="absolute -top-20 -right-16 w-60 h-60 rounded-full border border-white/10"></div>
+                        <div class="absolute -bottom-24 -left-16 w-72 h-72 rounded-full border border-white/10"></div>
+                        <div class="relative p-7">
+                            <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-3xl mb-6">👟</div>
+                            <span class="text-[11px] font-bold tracking-[0.12em] text-white/75">VANDAAG</span>
+                            <h3 class="text-2xl font-bold text-white mt-1.5 mb-5 leading-tight">Nieuwe sneakers, onderweg naar je toe</h3>
+
+                            <!-- berichten-pill, rechts boven de tijdlijn (zoals in de app) -->
+                            <div class="flex justify-end mb-2.5">
+                                <span class="text-[11px] font-medium text-white/85 bg-white/[0.16] rounded-lg px-2.5 py-1">4 berichten</span>
                             </div>
-                            <div class="flex items-center gap-2.5 text-[#111111]">
-                                <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0m6 0H9"/></svg>
-                                <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path stroke-linecap="round" d="M3 9.5h18M8 3v3M16 3v3"/></svg>
-                                <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 7.5l8.5 6 8.5-6"/></svg>
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-300 to-pink-400"></div>
-                            </div>
-                        </div>
-                        <div class="px-5 pt-2">
-                            <div class="app-search flex items-center gap-2.5 px-4 py-2.5">
-                                <svg class="w-4 h-4 text-[#8A8A8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4-4"/></svg>
-                                <span class="text-[12.5px] text-[#A8A8A8]">Zoek in al je berichten…</span>
-                            </div>
-                        </div>
-                        <!-- Gecentreerde rust-staat -->
-                        <div class="flex-1 flex flex-col items-center justify-center px-8 -mt-6">
-                            <div class="w-20 h-20 rounded-full bg-app-accent/15 flex items-center justify-center mb-6">
-                                <div class="w-12 h-12 rounded-full bg-app-accent flex items-center justify-center">
-                                    <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+
+                            <!-- Verticale tijdlijn (ticket_timeline.dart): bullet links, datum rechts -->
+                            <div class="space-y-3.5">
+                                <div class="flex items-center">
+                                    <span class="w-[6px] h-[6px] rounded-full bg-white/55 flex-shrink-0"></span>
+                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/90 truncate">Bestelling geplaatst</span>
+                                    <span class="text-[12px] text-white/55">28 mei</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-[6px] h-[6px] rounded-full bg-white/55 flex-shrink-0"></span>
+                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/90 truncate">Verzonden</span>
+                                    <span class="text-[12px] text-white/55">29 mei</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-[7px] h-[7px] rounded-full bg-white flex-shrink-0"></span>
+                                    <span class="ml-3 flex-1 text-[14px] font-bold text-white truncate">Onderweg</span>
+                                    <span class="text-[12px] font-semibold text-white/90">Vandaag</span>
+                                </div>
+                                <div class="flex items-center opacity-50">
+                                    <span class="w-[6px] h-[6px] rounded-full bg-white/40 flex-shrink-0"></span>
+                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/80 truncate">Bezorgd</span>
+                                    <span class="text-[12px] text-white/60">Morgen</span>
                                 </div>
                             </div>
-                            <p class="text-[17px] font-bold text-[#111111] mb-1.5" style="letter-spacing:-0.3px;">Je bent helemaal bij</p>
-                            <p class="text-[13px] text-[#8A8A8A] text-center leading-relaxed">Geen openstaande acties.<br>Geniet van je dag.</p>
+
+                            <!-- ETA-box -->
+                            <div class="mt-7 bg-white/[0.14] rounded-2xl px-4 py-3.5">
+                                <p class="text-[13.5px] text-white/90 leading-relaxed">Verwachte bezorging morgen 14:00–16:00. Je hoeft niets te doen, we laten het weten zodra het er is.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -713,39 +642,84 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- FINAL CTA                                                      -->
+    <!-- SECTION: Jij hebt de sleutel (Image 5)                         -->
     <!-- ============================================================= -->
-    <section id="download" class="py-24 lg:py-32 bg-gray-950 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] rounded-full bg-app-accent/15 blur-[140px]"></div>
-        </div>
-        <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center relative reveal">
-            <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.05]">
-                Klaar voor een inbox<br>die voor jóu werkt?
-            </h2>
-            <p class="text-lg text-gray-400 mb-12">Koppel je mail in minder dan een minuut.</p>
+    <section class="py-28 lg:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center reveal mb-16">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-5">
+                    Jij hebt de sleutel.
+                </h2>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                    Je inbox is privé. Bij Beeylo blijft dat zo, geen uitzonderingen en geen kleine lettertjes.
+                </p>
+            </div>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-                <a href="#" class="flex items-center justify-center w-60 h-[68px] bg-white text-gray-900 rounded-2xl hover:scale-105 transition-transform duration-300 shadow-2xl">
-                    <div class="flex items-center gap-3.5">
-                        <svg class="w-9 h-9 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal reveal-d1">
+                <!-- Versleuteld -->
+                <div class="bg-gray-50 rounded-3xl p-8">
+                    <div class="w-14 h-14 rounded-2xl bg-app-accent/15 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-app-accentDark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path stroke-linecap="round" d="M8 11V8a4 4 0 018 0v3"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2.5">Versleuteld opgeslagen</h3>
+                    <p class="text-[15px] text-gray-500 leading-relaxed">Je data wordt versleuteld bewaard. Niemand anders komt erbij, alleen jij.</p>
+                </div>
+                <!-- Alleen voor jou -->
+                <div class="bg-gray-50 rounded-3xl p-8">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2.5">Alleen voor jou</h3>
+                    <p class="text-[15px] text-gray-500 leading-relaxed">Beeylo leest je mails om jóu te helpen. Nooit voor advertenties, nooit voor iets anders.</p>
+                </div>
+                <!-- Stop wanneer je wil -->
+                <div class="bg-gray-50 rounded-3xl p-8">
+                    <div class="w-14 h-14 rounded-2xl bg-gray-900 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2.5">Stop wanneer je wil</h3>
+                    <p class="text-[15px] text-gray-500 leading-relaxed">Eén tap en alles is gewist. Geen gedoe, geen vragen. Jij houdt de controle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- CLOSING / DOWNLOAD: Zo voelt een lege inbox (Image 6)          -->
+    <!-- Geanimeerde gele bol = de rust van een lege inbox.             -->
+    <!-- ============================================================= -->
+    <section id="download" class="relative pt-28 lg:pt-36 pb-28 lg:pb-32 bg-gradient-to-b from-[#FFFDF6] to-white overflow-hidden">
+        <div class="max-w-2xl mx-auto px-6 lg:px-8 text-center relative reveal active">
+            <div class="flex justify-center mb-14">
+                <div class="sun-ball"></div>
+            </div>
+
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-4 leading-[1.05]">
+                Zo voelt een<br>lege inbox.
+            </h2>
+            <p class="text-lg text-gray-500 mb-12">Niets meer te zoeken. Niets meer te missen. Gewoon rust.</p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#" class="flex items-center justify-center w-56 h-16 bg-black text-white rounded-2xl hover:scale-105 transition-transform duration-300 shadow-xl cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-8 h-8 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                         <div class="text-left">
-                            <div class="text-[11px] leading-tight text-gray-500">Download in de</div>
+                            <div class="text-[10px] leading-tight">Download in de</div>
                             <div class="text-lg font-semibold leading-tight">App Store</div>
                         </div>
                     </div>
                 </a>
-                <a href="#" class="flex items-center justify-center w-60 h-[68px] bg-white text-gray-900 rounded-2xl hover:scale-105 transition-transform duration-300 shadow-2xl">
-                    <div class="flex items-center gap-3.5">
-                        <svg class="w-9 h-9 fill-current" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                <a href="#" class="flex items-center justify-center w-56 h-16 bg-gray-100 text-gray-900 rounded-2xl hover:scale-105 transition-transform duration-300 shadow-md border border-gray-200 cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-8 h-8 fill-current" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                         <div class="text-left">
-                            <div class="text-[11px] leading-tight text-gray-500">ONTDEK HET OP</div>
+                            <div class="text-[10px] leading-tight text-gray-500">ONTDEK HET OP</div>
                             <div class="text-lg font-semibold leading-tight">Google Play</div>
                         </div>
                     </div>
                 </a>
             </div>
-            <p class="text-sm text-gray-500 mt-6">Gebruik Beeylo nu gratis.</p>
+            <p class="text-base text-gray-500 mt-8">Gebruik Beeylo nu gratis.</p>
         </div>
     </section>
 
