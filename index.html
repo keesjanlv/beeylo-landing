@@ -335,19 +335,21 @@
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden">
 
+    <!-- Taalwissel: zwevend pilletje, desktop rechtsboven / mobiel rechtsonder, altijd zichtbaar -->
+    <div class="fixed z-[60] right-3 bottom-4 sm:bottom-auto sm:top-3 flex items-center gap-1 bg-white/80 backdrop-blur ring-1 ring-black/[0.06] shadow-sm rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide">
+        <span class="text-gray-900">EN</span>
+        <span class="text-gray-300">/</span>
+        <a href="/nl/" onclick="localStorage.setItem('beeylo_lang','nl')" class="text-gray-400 hover:text-gray-900 transition-colors">NL</a>
+    </div>
+
     <!-- Navigation -->
     <nav class="fixed w-full z-50 pt-4 lg:pt-6 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-7 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex-shrink-0 flex items-center gap-2">
                     <img src="logo.png" alt="Beeylo" class="w-9 h-9 object-contain">
                 </a>
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-1.5 text-[13px] font-semibold">
-                        <span class="text-gray-900">EN</span>
-                        <span class="text-gray-300">/</span>
-                        <a href="/nl/" onclick="localStorage.setItem('beeylo_lang','nl')" class="text-gray-400 hover:text-gray-900 transition-colors">NL</a>
-                    </div>
+                <div>
                     <a href="#download" class="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl">
                         Coming soon
                     </a>
