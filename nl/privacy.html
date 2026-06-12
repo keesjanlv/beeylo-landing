@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+  (function(){try{
+    var p=location.pathname;
+    var isNL=p==='/nl'||p==='/nl/'||p.indexOf('/nl/')===0;
+    function nlOf(p){if(/privacy/.test(p))return '/nl/privacy';if(/terms/.test(p))return '/nl/terms';return '/nl/';}
+    function enOf(p){if(/privacy/.test(p))return '/privacy';if(/terms/.test(p))return '/terms';return '/';}
+    var s=localStorage.getItem('beeylo_lang');
+    if(s==='nl'&&!isNL){location.replace(nlOf(p));return;}
+    if(s==='en'&&isNL){location.replace(enOf(p));return;}
+    if(!s){var L=navigator.languages||[navigator.language||'en'];if(L.some(function(x){return /^nl/i.test(x);})&&!isNL){location.replace(nlOf(p));return;}}
+  }catch(e){}})();
+  </script>
+  <title>Beeylo: Privacybeleid</title>
+  <meta name="description" content="Hoe Beeylo omgaat met je gegevens, je e-mail en je privacy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #111111;
+      --muted: #5a5a5a;
+      --line: #E2E2E2;
+      --cream: #FEF8E7;
+      --bg: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+    header.top { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+    header.top img { height: 32px; width: auto; }
+    header.top a { color: var(--muted); text-decoration: none; font-size: 14px; }
+    .top-right { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+    .langsw { font-size: 14px; font-weight: 600; color: var(--muted); }
+    .langsw strong { color: var(--ink); }
+    .langsw a { color: var(--muted); }
+    h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .updated { color: var(--muted); font-size: 14px; margin-bottom: 40px; }
+    h2 { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 21px; margin: 40px 0 12px; letter-spacing: -0.01em; }
+    p, li { font-size: 16px; color: #2a2a2a; }
+    a { color: var(--ink); }
+    .callout {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 24px 0;
+      font-size: 15.5px;
+    }
+    .callout strong { display: block; margin-bottom: 6px; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    footer { border-top: 1px solid var(--line); margin-top: 64px; padding-top: 24px; color: var(--muted); font-size: 14px; }
+    footer a { color: var(--muted); }
+    .en { color: var(--muted); font-size: 14.5px; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <img src="/logo.png" alt="Beeylo" />
+      <div class="top-right">
+        <span class="langsw"><a href="/privacy" onclick="localStorage.setItem('beeylo_lang','en')">EN</a> / <strong>NL</strong></span>
+        <a href="index.html">← Terug naar beeylo.com</a>
+      </div>
+    </header>
+
+    <h1>Privacybeleid</h1>
+    <p class="updated">Laatst bijgewerkt: 10 juni 2026</p>
+
+    <p>
+      Beeylo helpt je je e-mailinbox overzichtelijk te houden. We halen het belangrijke uit je
+      mail (bestellingen, facturen, afspraken, taken) en zetten het om in een rustig overzicht,
+      zodat je niets mist en nergens naar hoeft te zoeken. Om dat te kunnen doen, lezen we met jouw
+      toestemming je e-mail. Dit beleid legt precies uit welke gegevens we gebruiken, waarom, hoe we
+      ze beschermen en welke rechten je hebt.
+    </p>
+
+    <h2>Welke gegevens we gebruiken</h2>
+    <ul>
+      <li><strong>Je e-mail (alleen-lezen).</strong> Met de Google-machtiging <code>gmail.readonly</code> (of de Outlook-equivalent) lezen we de inhoud en metadata van je e-mails om er een overzicht en acties van te maken. We <em>versturen</em>, wijzigen of verwijderen nooit e-mail namens jou.</li>
+      <li><strong>Accountgegevens.</strong> Je naam en e-mailadres voor je Beeylo-account.</li>
+      <li><strong>Gebruiksgegevens.</strong> Basale, niet-verkochte gegevens over hoe de app werkt (bv. crashmeldingen) om de app te verbeteren.</li>
+    </ul>
+
+    <h2>Waarvoor we het gebruiken</h2>
+    <ul>
+      <li>Je e-mails omzetten in een overzichtelijke inbox met tickets, afspraken en acties.</li>
+      <li>Het belangrijke samenvatten en categoriseren met AI (zie hieronder).</li>
+      <li>Je een melding sturen wanneer er iets belangrijks binnenkomt.</li>
+    </ul>
+    <p>We gebruiken je e-mailinhoud <strong>uitsluitend</strong> om deze functies aan jou te leveren. Niet voor advertenties, niet voor profilering en we verkopen je gegevens nooit.</p>
+
+    <div class="callout">
+      <strong>Limited Use: Google API Services</strong>
+      Beeylo's gebruik en overdracht van informatie ontvangen via Google API's voldoet aan het
+      <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>,
+      inclusief de Limited Use-vereisten. Concreet: we gebruiken Gmail-data alleen om de
+      gebruikersgerichte functies van Beeylo te leveren, dragen die data niet over aan derden
+      behalve waar nodig om die functies te leveren of wettelijk verplicht, gebruiken die data
+      niet voor advertenties, en laten geen mens je e-mails lezen behalve met jouw expliciete
+      toestemming, voor beveiliging, of wanneer de wet dat vereist.
+      <br /><br />
+      <span class="en">Beeylo's use and transfer of information received from Google APIs to any
+      other app will adhere to the Google API Services User Data Policy, including the Limited Use
+      requirements.</span>
+    </div>
+
+    <h2>AI-verwerking</h2>
+    <p>
+      Om je e-mail samen te vatten en te ordenen gebruiken we Google's Gemini-modellen via
+      <strong>Vertex AI</strong>. Daarbij geldt contractueel dat je gegevens <strong>niet worden
+      gebruikt om AI-modellen te trainen</strong>. De verwerking gebeurt geautomatiseerd; er kijkt
+      geen mens mee.
+    </p>
+
+    <h2>Waar en hoe we je gegevens bewaren</h2>
+    <ul>
+      <li><strong>Opslag in de EU.</strong> Je gegevens staan op servers in de Europese Unie (Frankfurt, Duitsland).</li>
+      <li><strong>Versleuteld.</strong> De ruwe inhoud van je e-mails wordt versleuteld opgeslagen.</li>
+      <li><strong>Toegang beperkt.</strong> Alleen strikt noodzakelijke, beveiligde systemen hebben toegang; beheertoegang is afgeschermd met sterke authenticatie.</li>
+    </ul>
+
+    <h2>Hoe lang we het bewaren</h2>
+    <p>
+      We bewaren je gegevens zolang je account actief is. Wordt je account inactief én is er geen
+      lopend abonnement, dan verwijderen we de ruwe inhoud van je e-mails na 90 dagen. Verwijder je
+      je account, dan wissen we al je gegevens binnen 30 dagen. Koppel je een inbox los, dan wordt de
+      ruwe e-mailinhoud binnen 5 minuten verwijderd.
+    </p>
+
+    <h2>Met wie we gegevens delen</h2>
+    <p>We verkopen je gegevens nooit. We werken met een beperkt aantal verwerkers die ons helpen de dienst te leveren, allemaal onder verwerkersovereenkomsten:</p>
+    <ul>
+      <li><strong>Google</strong>: Gmail API (e-mailtoegang) en Vertex AI (verwerking).</li>
+      <li><strong>Microsoft</strong>: Outlook API, als je een Outlook-inbox koppelt.</li>
+      <li><strong>Supabase &amp; Railway</strong>: hosting en database, in de EU.</li>
+      <li><strong>Resend</strong>: het versturen van systeem-e-mails (bv. inloglinks).</li>
+      <li><strong>Firebase (Google)</strong>: pushmeldingen.</li>
+    </ul>
+
+    <h2>Je rechten</h2>
+    <p>Je hebt volledige controle over je gegevens. In de app kun je:</p>
+    <ul>
+      <li><strong>Je gegevens exporteren</strong>: download al je data in één bestand (AVG art. 20).</li>
+      <li><strong>Je account en gegevens verwijderen</strong>: permanent, voltooid binnen 30 dagen (AVG art. 17).</li>
+      <li><strong>Een inbox loskoppelen</strong>: op elk moment, waarna we stoppen met lezen.</li>
+    </ul>
+    <p>
+      Je kunt je toestemming ook intrekken via je
+      <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google-accountinstellingen</a>.
+      Daarnaast heb je het recht op inzage, correctie en het indienen van een klacht bij de
+      Autoriteit Persoonsgegevens.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Vragen over je privacy of dit beleid? Mail ons op
+      <a href="mailto:privacy@beeylo.com">privacy@beeylo.com</a>.
+    </p>
+
+    <h2>Wijzigingen</h2>
+    <p>
+      We kunnen dit beleid bijwerken. Bij belangrijke wijzigingen laten we het je weten in de app of
+      per e-mail. De datum bovenaan toont wanneer dit beleid voor het laatst is gewijzigd.
+    </p>
+
+    <footer>
+      © 2026 Beeylo · <a href="index.html">beeylo.com</a> · <a href="mailto:privacy@beeylo.com">privacy@beeylo.com</a>
+    </footer>
+  </div>
+</body>
+</html>

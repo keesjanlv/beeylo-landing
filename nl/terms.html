@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+  (function(){try{
+    var p=location.pathname;
+    var isNL=p==='/nl'||p==='/nl/'||p.indexOf('/nl/')===0;
+    function nlOf(p){if(/privacy/.test(p))return '/nl/privacy';if(/terms/.test(p))return '/nl/terms';return '/nl/';}
+    function enOf(p){if(/privacy/.test(p))return '/privacy';if(/terms/.test(p))return '/terms';return '/';}
+    var s=localStorage.getItem('beeylo_lang');
+    if(s==='nl'&&!isNL){location.replace(nlOf(p));return;}
+    if(s==='en'&&isNL){location.replace(enOf(p));return;}
+    if(!s){var L=navigator.languages||[navigator.language||'en'];if(L.some(function(x){return /^nl/i.test(x);})&&!isNL){location.replace(nlOf(p));return;}}
+  }catch(e){}})();
+  </script>
+  <title>Beeylo: Algemene voorwaarden</title>
+  <meta name="description" content="De algemene voorwaarden voor het gebruik van Beeylo, inclusief het gratis en betaalde abonnement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #111111;
+      --muted: #5a5a5a;
+      --line: #E2E2E2;
+      --cream: #FEF8E7;
+      --bg: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+    header.top { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+    header.top img { height: 32px; width: auto; }
+    header.top a { color: var(--muted); text-decoration: none; font-size: 14px; }
+    .top-right { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+    .langsw { font-size: 14px; font-weight: 600; color: var(--muted); }
+    .langsw strong { color: var(--ink); }
+    .langsw a { color: var(--muted); }
+    h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .updated { color: var(--muted); font-size: 14px; margin-bottom: 40px; }
+    h2 { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 21px; margin: 40px 0 12px; letter-spacing: -0.01em; }
+    p, li { font-size: 16px; color: #2a2a2a; }
+    a { color: var(--ink); }
+    .callout {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 24px 0;
+      font-size: 15.5px;
+    }
+    .callout strong { display: block; margin-bottom: 6px; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    .plan { border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin: 16px 0; }
+    .plan h3 { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 4px; }
+    .plan .price { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    footer { border-top: 1px solid var(--line); margin-top: 64px; padding-top: 24px; color: var(--muted); font-size: 14px; }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <img src="/logo.png" alt="Beeylo" />
+      <div class="top-right">
+        <span class="langsw"><a href="/terms" onclick="localStorage.setItem('beeylo_lang','en')">EN</a> / <strong>NL</strong></span>
+        <a href="index.html">Terug naar beeylo.com</a>
+      </div>
+    </header>
+
+    <h1>Algemene voorwaarden</h1>
+    <p class="updated">Laatst bijgewerkt: 10 juni 2026</p>
+
+    <p>
+      Welkom bij Beeylo. Deze voorwaarden gelden voor het gebruik van de Beeylo-app en de
+      bijbehorende diensten. Door Beeylo te gebruiken ga je akkoord met deze voorwaarden. Lees ze
+      goed door. Hoe we met je gegevens omgaan staat in ons
+      <a href="privacy.html">Privacybeleid</a>.
+    </p>
+
+    <h2>Wat Beeylo is</h2>
+    <p>
+      Beeylo haalt het belangrijke uit je e-mailinbox en zet het overzichtelijk voor je neer:
+      bestellingen, facturen, afspraken en taken, zonder de ruis. Je koppelt je eigen
+      e-mailaccount (Gmail of Outlook) en Beeylo leest je mail alleen-lezen om dat overzicht te
+      maken. Beeylo verstuurt of wijzigt nooit e-mail namens jou.
+    </p>
+
+    <h2>Je account</h2>
+    <ul>
+      <li>Je bent zelf verantwoordelijk voor je account en de gegevens die je opgeeft.</li>
+      <li>Je moet minimaal 16 jaar zijn om Beeylo te gebruiken.</li>
+      <li>Eén account is voor één persoon. Deel je inloggegevens niet.</li>
+      <li>Je kunt je account op elk moment verwijderen in de app.</li>
+    </ul>
+
+    <h2>Gratis en betaald</h2>
+    <p>
+      Beeylo heeft een gratis versie en een betaald abonnement. De kern: gratis geeft je rust,
+      het betaalde abonnement zorgt dat je nooit meer iets mist.
+    </p>
+
+    <div class="plan">
+      <h3>Gratis</h3>
+      <p class="price">Altijd gratis, geen creditcard nodig.</p>
+      <ul>
+        <li>Gefilterde inbox: alleen berichten die ertoe doen</li>
+        <li>Sectie "Belangrijk": wat actie vereist</li>
+        <li>Sectie "Updates": wat je moet weten</li>
+        <li>Berichtenpagina: je volledige archief</li>
+        <li>Zoekfunctie</li>
+        <li>1 week mailgeschiedenis</li>
+      </ul>
+    </div>
+
+    <div class="plan">
+      <h3>Pro</h3>
+      <p class="price">€7,99 per maand of €79 per jaar.</p>
+      <p>Alles uit de gratis versie, plus:</p>
+      <ul>
+        <li>4 weken mailgeschiedenis, voor een vollediger beeld</li>
+        <li>Automatische herinneringen voor vervaldatums, afspraken en deadlines</li>
+        <li>Zelf herinneringen instellen per bericht</li>
+        <li>Berichten vastzetten op je homepage</li>
+        <li>Smart Thread: gerelateerde mails automatisch gebundeld met een groeiende tijdlijn</li>
+        <li>Automatische agenda van alles wat Beeylo voor je bijhoudt</li>
+      </ul>
+    </div>
+
+    <h2>Betaling, verlenging en opzeggen</h2>
+    <ul>
+      <li>Het abonnement wordt vooraf betaald per maand of per jaar via onze betaalprovider. De getoonde prijzen zijn inclusief btw.</li>
+      <li>Het abonnement verlengt automatisch aan het einde van elke periode, tenzij je vóór die tijd opzegt.</li>
+      <li>Je kunt op elk moment opzeggen. Je behoudt dan toegang tot Pro tot het einde van de al betaalde periode.</li>
+      <li>Bij opzeggen val je daarna automatisch terug naar de gratis versie. Je gegevens blijven behouden zolang je account actief is.</li>
+      <li>We kunnen onze prijzen aanpassen. Wijzigingen kondigen we vooraf aan en gaan pas in bij je volgende verlenging.</li>
+    </ul>
+
+    <h2>Toegestaan gebruik</h2>
+    <p>Je gebruikt Beeylo alleen voor je eigen, legale doeleinden. Het is niet toegestaan om:</p>
+    <ul>
+      <li>de dienst te misbruiken, te overbelasten of de beveiliging te omzeilen;</li>
+      <li>de app te kopiëren, te reverse-engineeren of door te verkopen;</li>
+      <li>toegang te krijgen tot accounts of gegevens die niet van jou zijn.</li>
+    </ul>
+
+    <h2>Je e-mail en privacy</h2>
+    <p>
+      Beeylo leest je e-mail alleen-lezen en uitsluitend om de functies van de app aan jou te
+      leveren. Hoe we dat doen, hoe lang we gegevens bewaren en welke rechten je hebt, staat in
+      ons <a href="privacy.html">Privacybeleid</a>. Je kunt je inbox op elk moment loskoppelen,
+      waarna we stoppen met lezen.
+    </p>
+
+    <h2>Beschikbaarheid en wijzigingen</h2>
+    <p>
+      Beeylo is volop in ontwikkeling. We kunnen functies toevoegen, wijzigen of verwijderen en
+      de dienst van tijd tot tijd onderbreken voor onderhoud. We doen ons best voor een goede
+      beschikbaarheid, maar kunnen geen ononderbroken werking garanderen.
+    </p>
+
+    <h2>Aansprakelijkheid</h2>
+    <p>
+      Beeylo wordt geleverd zoals het is. Voor zover wettelijk toegestaan zijn wij niet
+      aansprakelijk voor indirecte schade of gevolgschade die voortvloeit uit het gebruik van de
+      dienst. Niets in deze voorwaarden beperkt je dwingrechtelijke rechten als consument.
+    </p>
+
+    <h2>Beëindiging</h2>
+    <p>
+      Je kunt je gebruik op elk moment stoppen en je account verwijderen in de app. Wij kunnen je
+      toegang opschorten of beëindigen als je deze voorwaarden schendt of de dienst misbruikt.
+    </p>
+
+    <h2>Wijzigingen van deze voorwaarden</h2>
+    <p>
+      We kunnen deze voorwaarden bijwerken. Bij belangrijke wijzigingen laten we het je weten in
+      de app of per e-mail. De datum bovenaan toont wanneer de voorwaarden voor het laatst zijn
+      gewijzigd.
+    </p>
+
+    <h2>Toepasselijk recht</h2>
+    <p>
+      Op deze voorwaarden is Nederlands recht van toepassing. Geschillen leggen we voor aan de
+      bevoegde rechter in Nederland, tenzij de wet dwingend iets anders bepaalt.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Vragen over deze voorwaarden? Mail ons op
+      <a href="mailto:privacy@beeylo.com">privacy@beeylo.com</a>.
+    </p>
+
+    <footer>
+      © 2026 Beeylo · <a href="index.html">beeylo.com</a> · <a href="privacy.html">Privacybeleid</a> · <a href="mailto:privacy@beeylo.com">privacy@beeylo.com</a>
+    </footer>
+  </div>
+</body>
+</html>

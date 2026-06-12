@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="nl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,8 @@
     }catch(e){}})();
     </script>
 
-    <title>Beeylo · 90% of your inbox is noise. We surface what matters.</title>
-    <meta name="description" content="Beeylo pulls out what matters and lays it out clearly. So you never miss a thing and never have to search again.">
+    <title>Beeylo · 90% van je inbox is ruis. Wij halen eruit wat telt.</title>
+    <meta name="description" content="Beeylo haalt eruit wat belangrijk is en zet het overzichtelijk voor je neer. Zodat je nooit meer iets mist en nooit meer hoeft te zoeken.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Inter = body. Open Sans = sectie-titels in de app. Manrope = Buddy/welcome.
@@ -264,7 +264,7 @@
             .act-bell.set { animation: none; }
         }
 
-        /* ====== Slot ("You hold de sleutel") — amber body, metallic beugel ====== */
+        /* ====== Slot ("Jij hebt de sleutel") — amber body, metallic beugel ====== */
         .lock { width: 260px; height: 320px; }
         @media (max-width: 480px) { .lock { width: 220px; height: 280px; } }
         /* Beugel: U-vorm achter de body */
@@ -340,13 +340,13 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex-shrink-0 flex items-center gap-2">
-                    <img src="logo.png" alt="Beeylo" class="w-9 h-9 object-contain">
+                    <img src="/logo.png" alt="Beeylo" class="w-9 h-9 object-contain">
                 </a>
                 <div class="flex items-center gap-4">
                     <div class="flex items-center gap-1.5 text-[13px] font-semibold">
-                        <span class="text-gray-900">EN</span>
+                        <a href="/" onclick="localStorage.setItem('beeylo_lang','en')" class="text-gray-400 hover:text-gray-900 transition-colors">EN</a>
                         <span class="text-gray-300">/</span>
-                        <a href="/nl/" onclick="localStorage.setItem('beeylo_lang','nl')" class="text-gray-400 hover:text-gray-900 transition-colors">NL</a>
+                        <span class="text-gray-900">NL</span>
                     </div>
                     <a href="#download" class="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl">
                         Coming soon
@@ -373,11 +373,11 @@
                     <!-- Tekst + CTA links -->
                     <div class="text-center lg:text-left">
                         <h1 class="text-5xl md:text-7xl lg:text-[4.75rem] font-bold tracking-tighter text-gray-900 mb-7 leading-[1.04]">
-                            90% of your inbox<br class="hidden sm:block">
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">is noise.</span>
+                            90% van je inbox<br class="hidden sm:block">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">is ruis.</span>
                         </h1>
                         <p class="text-lg md:text-xl text-gray-500 max-w-xl mx-auto lg:mx-0 mb-9 leading-relaxed">
-                            Beeylo pulls out what matters and lays it out clearly. So you never miss a thing, and never have to search again.
+                            Beeylo haalt eruit wat belangrijk is en zet het overzichtelijk voor je neer. Zodat je nooit meer iets mist, en nooit meer hoeft te zoeken.
                         </p>
 
                         <div class="inline-flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
@@ -385,7 +385,7 @@
                                 <div class="flex items-center gap-3">
                                     <svg class="w-8 h-8 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                                     <div class="text-left">
-                                        <div class="text-[10px] leading-tight">Download on the</div>
+                                        <div class="text-[10px] leading-tight">Download in de</div>
                                         <div class="text-lg font-semibold leading-tight">App Store</div>
                                     </div>
                                 </div>
@@ -394,7 +394,7 @@
                                 <div class="flex items-center gap-3">
                                     <svg class="w-8 h-8 fill-current" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                                     <div class="text-left">
-                                        <div class="text-[10px] leading-tight">GET IT ON</div>
+                                        <div class="text-[10px] leading-tight">ONTDEK HET OP</div>
                                         <div class="text-lg font-semibold leading-tight">Google Play</div>
                                     </div>
                                 </div>
@@ -428,10 +428,10 @@
                 <!-- Tekst links -->
                 <div class="reveal">
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.05] mb-7">
-                        Somewhere in here is that one invoice.
+                        Ergens hiertussen staat die ene factuur.
                     </h2>
                     <p class="text-lg text-gray-500 max-w-md leading-relaxed">
-                        Ads, newsletters, notifications, promotions. Dozens of emails every day, and among them the one message that actually matters.
+                        Reclame, nieuwsbrieven, meldingen, aanbiedingen. Elke dag tientallen mails, en daartussen het ene bericht dat er echt toe doet.
                     </p>
                 </div>
 
@@ -442,71 +442,71 @@
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
                             <div class="w-9 h-9 rounded-full bg-pink-100 text-pink-500 text-sm font-bold flex items-center justify-center flex-shrink-0">%</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-bold text-gray-900 truncate">🎉 50% OFF, today only!</div>
-                                <div class="text-[13px] text-gray-400 truncate">Don't miss this deal, shop now…</div>
+                                <div class="text-[14px] font-bold text-gray-900 truncate">🎉 50% KORTING, alleen vandaag!</div>
+                                <div class="text-[13px] text-gray-400 truncate">Mis deze deal niet, shop nu…</div>
                             </div>
                         </div>
                         <!-- 2 -->
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
                             <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-500 text-sm font-bold flex items-center justify-center flex-shrink-0">N</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-semibold text-gray-800 truncate">Newsletter: 10 tips for…</div>
-                                <div class="text-[13px] text-gray-400 truncate">Dear reader, in this edition…</div>
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Nieuwsbrief: 10 tips voor het…</div>
+                                <div class="text-[13px] text-gray-400 truncate">Beste lezer, in deze editie…</div>
                             </div>
                         </div>
                         <!-- 3 - die ene factuur, uitgelicht -->
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border-2 border-app-accent shadow-[0_6px_22px_-6px_rgba(245,180,0,0.45)] px-4 py-3">
                             <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-600 text-sm font-bold flex items-center justify-center flex-shrink-0">b</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-bold text-gray-900 truncate">Invoice September: € 29.95</div>
-                                <div class="text-[13px] text-gray-400 truncate">Pay before the due date…</div>
+                                <div class="text-[14px] font-bold text-gray-900 truncate">Factuur september: € 29,95</div>
+                                <div class="text-[13px] text-gray-400 truncate">Betaal vóór de vervaldatum…</div>
                             </div>
                         </div>
                         <!-- 4 -->
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
                             <div class="w-9 h-9 rounded-full bg-pink-100 text-pink-500 text-sm font-bold flex items-center justify-center flex-shrink-0">♥</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-semibold text-gray-800 truncate">You have 3 new notifications</div>
-                                <div class="text-[13px] text-gray-400 truncate">Come back and see what you…</div>
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Je hebt 3 nieuwe meldingen</div>
+                                <div class="text-[13px] text-gray-400 truncate">Kom terug en bekijk wat je…</div>
                             </div>
                         </div>
                         <!-- 5 -->
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
                             <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-500 text-sm font-bold flex items-center justify-center flex-shrink-0">★</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-semibold text-gray-800 truncate">Last chance: your gift is waiting</div>
-                                <div class="text-[13px] text-gray-400 truncate">Open now to claim…</div>
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Laatste kans: jouw cadeau wacht</div>
+                                <div class="text-[13px] text-gray-400 truncate">Open nu om te claimen…</div>
                             </div>
                         </div>
                         <!-- 6 -->
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
                             <div class="w-9 h-9 rounded-full bg-sky-100 text-sky-600 text-xs font-bold flex items-center justify-center flex-shrink-0">in</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-semibold text-gray-800 truncate">5 people viewed your profile</div>
-                                <div class="text-[13px] text-gray-400 truncate">Upgrade to see who…</div>
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">5 mensen bekeken je profiel</div>
+                                <div class="text-[13px] text-gray-400 truncate">Upgrade om te zien wie…</div>
                             </div>
                         </div>
                         <!-- 7 -->
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3">
                             <div class="w-9 h-9 rounded-full bg-orange-100 text-orange-500 text-sm font-bold flex items-center justify-center flex-shrink-0">%</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-semibold text-gray-800 truncate">Black Friday starts now 🔥</div>
-                                <div class="text-[13px] text-gray-400 truncate">Up to 70% off everything…</div>
+                                <div class="text-[14px] font-semibold text-gray-800 truncate">Black Friday begint nu 🔥</div>
+                                <div class="text-[13px] text-gray-400 truncate">Tot 70% korting op alles…</div>
                             </div>
                         </div>
                         <!-- 8 - vervaagd -->
                         <div class="flex items-center gap-3.5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-4 py-3 opacity-45">
                             <div class="w-9 h-9 rounded-full bg-gray-100 text-gray-400 text-sm font-bold flex items-center justify-center flex-shrink-0">@</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-[14px] font-semibold text-gray-700 truncate">Confirm your email address</div>
-                                <div class="text-[13px] text-gray-400 truncate">Click the link below…</div>
+                                <div class="text-[14px] font-semibold text-gray-700 truncate">Bevestig je e-mailadres</div>
+                                <div class="text-[13px] text-gray-400 truncate">Klik op de link hieronder…</div>
                             </div>
                         </div>
                     </div>
                     <div class="flex justify-center mt-6">
                         <span class="inline-flex items-center gap-2 bg-[#111111] text-white rounded-full px-5 py-2.5 text-sm font-semibold shadow-lg">
                             <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span>
-                            Unread: 1,248
+                            Ongelezen: 1.248
                         </span>
                     </div>
                 </div>
@@ -516,7 +516,7 @@
 
     <!-- ============================================================= -->
     <!-- SECTION: Alleen wat telt. Bovenaan. (Image 3)                  -->
-    <!-- Echte home (home_page_v2.dart): Important-kaart + Updates     -->
+    <!-- Echte home (home_page_v2.dart): Belangrijk-kaart + Updates     -->
     <!-- ============================================================= -->
     <section class="py-28 lg:py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
@@ -530,8 +530,8 @@
                             <!-- TopbarV2: logo links, mail/bel/avatar rechts -->
                             <div class="pt-12 px-4 pb-2 flex items-center justify-between app-bg">
                                 <div class="flex items-center gap-1.5">
-                                    <img src="logo.png" alt="Beeylo" class="w-7 h-7 object-contain">
-                                    <img src="wordmark.png" alt="Beeylo" class="h-3.5 object-contain">
+                                    <img src="/logo.png" alt="Beeylo" class="w-7 h-7 object-contain">
+                                    <img src="/wordmark.png" alt="Beeylo" class="h-3.5 object-contain">
                                 </div>
                                 <div class="flex items-center gap-2.5 text-[#111111]">
                                     <svg class="w-[19px] h-[19px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 7.5l8.5 6 8.5-6"/></svg>
@@ -540,9 +540,9 @@
                                 </div>
                             </div>
 
-                            <!-- Important -->
+                            <!-- Belangrijk -->
                             <div class="px-4 pt-4 pb-3 flex items-center gap-2.5">
-                                <span class="app-section-title" style="font-size:21px;">Important</span>
+                                <span class="app-section-title" style="font-size:21px;">Belangrijk</span>
                                 <span class="app-count-pill h-[22px] min-w-[22px] px-1.5 inline-flex items-center justify-center text-[12px]">2</span>
                             </div>
                             <!-- _SliderCard (action-button modus) -->
@@ -555,12 +555,12 @@
                                             <div class="w-[34px] h-[34px] rounded-[8px] bg-white text-[#0A56C2] text-[9px] font-extrabold flex items-center justify-center flex-shrink-0">bol.</div>
                                             <div class="ml-2.5 flex-1 min-w-0">
                                                 <div class="text-[13px] font-semibold text-white truncate" style="letter-spacing:-0.13px;">bol.com</div>
-                                                <div class="text-[12px] text-white/70" style="letter-spacing:-0.12px;">2h</div>
+                                                <div class="text-[12px] text-white/70" style="letter-spacing:-0.12px;">2u</div>
                                             </div>
                                         </div>
-                                        <p class="mt-3.5 text-[16px] font-bold text-white leading-[1.3]" style="letter-spacing:-0.18px;">Your September invoice is ready to pay</p>
+                                        <p class="mt-3.5 text-[16px] font-bold text-white leading-[1.3]" style="letter-spacing:-0.18px;">Je factuur van september staat klaar om te betalen</p>
                                         <div class="mt-4 bg-white rounded-[10px] py-3 flex items-center justify-center gap-1.5">
-                                            <span class="text-[14px] font-medium text-[#111111]">Pay</span>
+                                            <span class="text-[14px] font-medium text-[#111111]">Betalen</span>
                                             <svg class="w-3.5 h-3.5 text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
                                         </div>
                                     </div>
@@ -579,15 +579,15 @@
                                         <span class="ml-2 flex-1 text-[12.5px] app-company truncate">Google</span>
                                         <span class="text-[12px] app-time">9m</span>
                                     </div>
-                                    <p class="mt-2 text-[14px] font-semibold app-headline">New sign-in to your account</p>
+                                    <p class="mt-2 text-[14px] font-semibold app-headline">Nieuwe inlog op je account</p>
                                 </div>
                                 <div class="app-card px-3.5 py-3">
                                     <div class="flex items-center">
                                         <div class="w-6 h-6 rounded-md bg-[#FFC917] text-[#001A4D] text-[8px] font-extrabold flex items-center justify-center flex-shrink-0">NS</div>
                                         <span class="ml-2 flex-1 text-[12.5px] app-company truncate">NS</span>
-                                        <span class="text-[12px] app-time">3h</span>
+                                        <span class="text-[12px] app-time">3u</span>
                                     </div>
-                                    <p class="mt-2 text-[14px] font-semibold app-headline">Your trip to Amsterdam is booked</p>
+                                    <p class="mt-2 text-[14px] font-semibold app-headline">Je reis naar Amsterdam is gepland</p>
                                 </div>
                             </div>
                             <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#F8F8F9] to-transparent pointer-events-none"></div>
@@ -598,10 +598,10 @@
                 <!-- Tekst rechts -->
                 <div class="reveal reveal-d1 order-2">
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.05] mb-7">
-                        Only what matters.<br>Up top.
+                        Alleen wat telt.<br>Bovenaan.
                     </h2>
                     <p class="text-lg text-gray-500 max-w-md leading-relaxed">
-                        No spam. No ads. No needless messages. What's left are your orders, invoices, appointments and official mail, neatly in a row, with the action already there.
+                        Geen spam. Geen reclame. Geen onnodige berichten. Wat overblijft zijn je bestellingen, facturen, afspraken en officiële post, netjes op een rij, met de actie er al bij.
                     </p>
                 </div>
             </div>
@@ -609,7 +609,7 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- SECTION: Search (search_page.dart)                             -->
+    <!-- SECTION: Zoeken (search_page.dart)                             -->
     <!-- Typ wat je zoekt → meteen het juiste ticket.                   -->
     <!-- ============================================================= -->
     <section class="py-28 lg:py-32 bg-white">
@@ -620,9 +620,9 @@
                     <div class="phone-frame w-[300px]">
                         <div class="phone-notch"></div>
                         <div class="phone-screen h-[620px] app-bg flex flex-col">
-                            <!-- AppBar: "Search" - Manrope 23 w800 -->
+                            <!-- AppBar: "Zoeken" - Manrope 23 w800 -->
                             <div class="pt-12 px-5 pb-3 app-bg">
-                                <span class="text-[23px] font-extrabold text-[#2B3437]" style="font-family:'Manrope',sans-serif;letter-spacing:-1px;">Search</span>
+                                <span class="text-[23px] font-extrabold text-[#2B3437]" style="font-family:'Manrope',sans-serif;letter-spacing:-1px;">Zoeken</span>
                             </div>
 
                             <!-- BeeyloSearchBar: #F1F4F6, radius 16, met getypte query -->
@@ -636,14 +636,14 @@
 
                             <!-- Category chips -->
                             <div class="px-5 pt-3.5 flex gap-2 overflow-hidden">
-                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-[#2B3437] text-white text-[12px] font-semibold whitespace-nowrap">Orders</span>
-                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-white border border-[rgba(171,179,183,0.45)] text-[#2B3437] text-[12px] font-semibold whitespace-nowrap">Invoices</span>
-                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-white border border-[rgba(171,179,183,0.45)] text-[#2B3437] text-[12px] font-semibold whitespace-nowrap">Appointments</span>
+                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-[#2B3437] text-white text-[12px] font-semibold whitespace-nowrap">Bestellingen</span>
+                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-white border border-[rgba(171,179,183,0.45)] text-[#2B3437] text-[12px] font-semibold whitespace-nowrap">Facturen</span>
+                                <span class="flex items-center gap-1.5 h-[34px] px-3.5 rounded-[18px] bg-white border border-[rgba(171,179,183,0.45)] text-[#2B3437] text-[12px] font-semibold whitespace-nowrap">Afspraken</span>
                             </div>
 
                             <!-- Resultaten -->
                             <div class="px-5 pt-5">
-                                <span class="text-[15px] font-extrabold text-[#2B3437]" style="font-family:'Manrope',sans-serif;letter-spacing:-0.5px;">2 results</span>
+                                <span class="text-[15px] font-extrabold text-[#2B3437]" style="font-family:'Manrope',sans-serif;letter-spacing:-0.5px;">2 resultaten</span>
                             </div>
                             <div class="px-5 pt-3 space-y-2">
                                 <!-- ActionTicketCard - order -->
@@ -653,11 +653,11 @@
                                         <span class="ml-2 flex-1 text-[14px] font-bold text-[#2B3437] truncate">Coolblue</span>
                                         <span class="w-2 h-2 rounded-full bg-app-accent flex-shrink-0"></span>
                                     </div>
-                                    <p class="mt-2 text-[14px] font-semibold text-[#2B3437] truncate">New sneakers, on their way to you</p>
-                                    <p class="mt-1 text-[13px] text-[#586064] truncate">Order number 3HV4N3‑90210</p>
+                                    <p class="mt-2 text-[14px] font-semibold text-[#2B3437] truncate">Nieuwe sneakers, onderweg naar je toe</p>
+                                    <p class="mt-1 text-[13px] text-[#586064] truncate">Ordernummer 3HV4N3‑90210</p>
                                     <div class="flex items-center justify-between mt-2.5">
                                         <span class="flex items-center gap-1 text-[11px] text-[#586064]"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8v4l3 2"/></svg>1d</span>
-                                        <span class="text-white text-[11px] font-semibold px-2.5 py-1 rounded-[6px]" style="background:rgba(255,111,0,0.9);">View order</span>
+                                        <span class="text-white text-[11px] font-semibold px-2.5 py-1 rounded-[6px]" style="background:rgba(255,111,0,0.9);">Bekijk bestelling</span>
                                     </div>
                                 </div>
                                 <!-- ActionTicketCard - factuur -->
@@ -666,11 +666,11 @@
                                         <div class="w-[30px] h-[30px] rounded-full bg-[#0A56C2] text-white text-[8px] font-extrabold flex items-center justify-center flex-shrink-0">bol.</div>
                                         <span class="ml-2 flex-1 text-[14px] font-medium text-[#2B3437] truncate">bol.com</span>
                                     </div>
-                                    <p class="mt-2 text-[14px] font-medium text-[#2B3437] truncate">Invoice September: € 29.95</p>
-                                    <p class="mt-1 text-[13px] text-[#586064] truncate">Pay before the due date</p>
+                                    <p class="mt-2 text-[14px] font-medium text-[#2B3437] truncate">Factuur september: € 29,95</p>
+                                    <p class="mt-1 text-[13px] text-[#586064] truncate">Betaal vóór de vervaldatum</p>
                                     <div class="flex items-center justify-between mt-2.5">
                                         <span class="flex items-center gap-1 text-[11px] text-[#586064]"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8v4l3 2"/></svg>3d</span>
-                                        <span class="text-white text-[11px] font-semibold px-2.5 py-1 rounded-[6px]" style="background:rgba(43,52,55,0.9);">View invoice</span>
+                                        <span class="text-white text-[11px] font-semibold px-2.5 py-1 rounded-[6px]" style="background:rgba(43,52,55,0.9);">Bekijk factuur</span>
                                     </div>
                                 </div>
                             </div>
@@ -681,23 +681,23 @@
 
                 <div class="reveal reveal-d1">
                     <span class="inline-flex items-center gap-1.5 text-[13px] font-bold text-app-accentDark tracking-tight uppercase mb-5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span> Search
+                        <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span> Zoeken
                     </span>
                     <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
-                        Looking for an email?<br>Just type what it was about.
+                        Op zoek naar een mail?<br>Typ gewoon waar het over ging.
                     </h2>
                     <p class="text-lg text-gray-500 max-w-md leading-relaxed">
-                        No folders, no exact search terms, no scrolling back three pages. Type a company or what it was about, and you have it instantly: order numbers, invoices, codes and appointments.
+                        Geen mappen, geen exacte zoektermen, geen drie pagina's terugscrollen. Typ een bedrijf of waar het over ging, en je hebt het meteen: ordernummers, facturen, codes en afspraken.
                     </p>
 
                     <!-- Subtiele knipoog: zoeken in je gewone mail -->
                     <div class="mt-9 max-w-sm">
-                        <span class="text-[12px] font-semibold text-gray-400 uppercase tracking-wide">Searching in your regular mail</span>
+                        <span class="text-[12px] font-semibold text-gray-400 uppercase tracking-wide">Zoeken in je gewone mail</span>
                         <div class="mt-2 flex items-center gap-3 bg-gray-100 rounded-2xl px-4 py-3">
                             <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4-4M8.5 8.5l5 5M13.5 8.5l-5 5"/></svg>
                             <div class="min-w-0">
-                                <div class="text-[13.5px] font-medium text-gray-500 truncate">"invoice coolblue august pdf paid?"</div>
-                                <div class="text-[12.5px] text-gray-400">0 results. Scroll back up again 😮‍💨</div>
+                                <div class="text-[13.5px] font-medium text-gray-500 truncate">"factuur coolblue augustus pdf betaald?"</div>
+                                <div class="text-[12.5px] text-gray-400">0 resultaten. Scroll maar weer terug 😮‍💨</div>
                             </div>
                         </div>
                     </div>
@@ -715,10 +715,10 @@
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="text-center reveal mb-16">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-5 leading-[1.05]">
-                    Everything that belongs together,<br class="hidden md:block"> in one overview.
+                    Alles wat bij elkaar hoort,<br class="hidden md:block"> in één overzicht.
                 </h2>
                 <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                    Five separate emails about one order become one living card. The timeline grows with every update, so you see at a glance where it stands.
+                    Vijf losse mails over één bestelling worden één levende kaart. De tijdlijn groeit mee met elke update, zodat je in één blik ziet waar het staat.
                 </p>
             </div>
 
@@ -729,23 +729,23 @@
                     <div class="space-y-2.5">
                         <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
-                            <span class="text-[14px] text-gray-500 truncate">Order confirmation: thanks for your order</span>
+                            <span class="text-[14px] text-gray-500 truncate">Orderbevestiging: bedankt voor je bestelling</span>
                         </div>
                         <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
-                            <span class="text-[14px] text-gray-500 truncate">We've packed your order</span>
+                            <span class="text-[14px] text-gray-500 truncate">We hebben je bestelling ingepakt</span>
                         </div>
                         <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
-                            <span class="text-[14px] text-gray-500 truncate">Track &amp; Trace: your parcel is on its way</span>
+                            <span class="text-[14px] text-gray-500 truncate">Track &amp; Trace: je pakket is onderweg</span>
                         </div>
                         <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
-                            <span class="text-[14px] text-gray-500 truncate">Delivery tomorrow between 2 and 4 PM</span>
+                            <span class="text-[14px] text-gray-500 truncate">Bezorging morgen tussen 14:00 en 16:00</span>
                         </div>
                         <div class="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span>
-                            <span class="text-[14px] text-gray-500 truncate">Your invoice is ready</span>
+                            <span class="text-[14px] text-gray-500 truncate">Je factuur staat klaar</span>
                         </div>
                     </div>
                     <div class="flex justify-center mt-6 lg:hidden">
@@ -760,41 +760,41 @@
                         <div class="absolute -bottom-24 -left-16 w-72 h-72 rounded-full border border-white/10"></div>
                         <div class="relative p-7">
                             <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-3xl mb-6">👟</div>
-                            <span class="text-[11px] font-bold tracking-[0.12em] text-white/75">TODAY</span>
-                            <h3 class="text-2xl font-bold text-white mt-1.5 mb-5 leading-tight">New sneakers, on their way to you</h3>
+                            <span class="text-[11px] font-bold tracking-[0.12em] text-white/75">VANDAAG</span>
+                            <h3 class="text-2xl font-bold text-white mt-1.5 mb-5 leading-tight">Nieuwe sneakers, onderweg naar je toe</h3>
 
                             <!-- berichten-pill, rechts boven de tijdlijn (zoals in de app) -->
                             <div class="flex justify-end mb-2.5">
-                                <span class="text-[11px] font-medium text-white/85 bg-white/[0.16] rounded-lg px-2.5 py-1">4 messages</span>
+                                <span class="text-[11px] font-medium text-white/85 bg-white/[0.16] rounded-lg px-2.5 py-1">4 berichten</span>
                             </div>
 
                             <!-- Verticale tijdlijn (ticket_timeline.dart): bullet links, datum rechts -->
                             <div class="space-y-3.5">
                                 <div class="flex items-center">
                                     <span class="w-[6px] h-[6px] rounded-full bg-white/55 flex-shrink-0"></span>
-                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/90 truncate">Order placed</span>
-                                    <span class="text-[12px] text-white/55">May 28</span>
+                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/90 truncate">Bestelling geplaatst</span>
+                                    <span class="text-[12px] text-white/55">28 mei</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="w-[6px] h-[6px] rounded-full bg-white/55 flex-shrink-0"></span>
-                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/90 truncate">Shipped</span>
-                                    <span class="text-[12px] text-white/55">May 29</span>
+                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/90 truncate">Verzonden</span>
+                                    <span class="text-[12px] text-white/55">29 mei</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="w-[7px] h-[7px] rounded-full bg-white flex-shrink-0"></span>
-                                    <span class="ml-3 flex-1 text-[14px] font-bold text-white truncate">In transit</span>
-                                    <span class="text-[12px] font-semibold text-white/90">Today</span>
+                                    <span class="ml-3 flex-1 text-[14px] font-bold text-white truncate">Onderweg</span>
+                                    <span class="text-[12px] font-semibold text-white/90">Vandaag</span>
                                 </div>
                                 <div class="flex items-center opacity-50">
                                     <span class="w-[6px] h-[6px] rounded-full bg-white/40 flex-shrink-0"></span>
-                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/80 truncate">Delivered</span>
-                                    <span class="text-[12px] text-white/60">Tomorrow</span>
+                                    <span class="ml-3 flex-1 text-[14px] font-medium text-white/80 truncate">Bezorgd</span>
+                                    <span class="text-[12px] text-white/60">Morgen</span>
                                 </div>
                             </div>
 
                             <!-- ETA-box -->
                             <div class="mt-7 bg-white/[0.14] rounded-2xl px-4 py-3.5">
-                                <p class="text-[13.5px] text-white/90 leading-relaxed">Expected delivery tomorrow 2–4 PM. You don't have to do anything, we'll let you know the moment it arrives.</p>
+                                <p class="text-[13.5px] text-white/90 leading-relaxed">Verwachte bezorging morgen 14:00-16:00. Je hoeft niets te doen, we laten het weten zodra het er is.</p>
                             </div>
                         </div>
                     </div>
@@ -804,7 +804,7 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- SECTION: You hold de sleutel (Image 5 — privacy by design)     -->
+    <!-- SECTION: Jij hebt de sleutel (Image 5 — privacy by design)     -->
     <!-- ============================================================= -->
     <section class="py-24 lg:py-32 bg-white overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
@@ -822,10 +822,10 @@
                     </span>
 
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.05]">
-                        You hold <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">the key.</span>
+                        Jij hebt <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">de sleutel.</span>
                     </h2>
                     <p class="text-lg text-gray-500 leading-relaxed mb-10 max-w-lg">
-                        Your inbox is private. Beeylo uses your data only to help you. Never for ads. Never for anyone else.
+                        Je inbox is privé. Beeylo gebruikt je gegevens alleen om jou te helpen. Nooit voor advertenties. Nooit voor iemand anders.
                     </p>
 
                     <!-- USP's met unieke duotone-illustraties, hoogte schaalt mee met de tekst -->
@@ -849,12 +849,12 @@
                                 </svg>
                             </div>
                             <div class="self-center">
-                                <h3 class="text-[18px] font-bold text-gray-900 mb-1">What's yours stays yours.</h3>
-                                <p class="text-[15px] text-gray-500 leading-relaxed max-w-md">No exceptions. No fine print.</p>
+                                <h3 class="text-[18px] font-bold text-gray-900 mb-1">Wat van jou is, blijft van jou.</h3>
+                                <p class="text-[15px] text-gray-500 leading-relaxed max-w-md">Geen uitzonderingen. Geen kleine lettertjes.</p>
                             </div>
                         </div>
 
-                        <!-- 2: Only to help — afgesloten, automatisch systeem (chip + sparkle + geordende output) -->
+                        <!-- 2: Alleen voor hulp — afgesloten, automatisch systeem (chip + sparkle + geordende output) -->
                         <div class="flex items-stretch gap-5">
                             <div class="w-[76px] flex-shrink-0 self-stretch flex items-center justify-center min-h-[68px]">
                                 <svg class="h-full w-full" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet" fill="none">
@@ -876,12 +876,12 @@
                                 </svg>
                             </div>
                             <div class="self-center">
-                                <h3 class="text-[18px] font-bold text-gray-900 mb-1">Only to help</h3>
-                                <p class="text-[15px] text-gray-500 leading-relaxed max-w-md">Our system reads your messages to organize them, summarize them and surface the actions.</p>
+                                <h3 class="text-[18px] font-bold text-gray-900 mb-1">Alleen voor hulp</h3>
+                                <p class="text-[15px] text-gray-500 leading-relaxed max-w-md">Ons systeem leest je berichten om ze te organiseren, samenvatten en acties zichtbaar te maken.</p>
                             </div>
                         </div>
 
-                        <!-- 3: Always in control — schuifregelaars -->
+                        <!-- 3: Altijd controle — schuifregelaars -->
                         <div class="flex items-stretch gap-5">
                             <div class="w-[76px] flex-shrink-0 self-stretch flex items-center justify-center min-h-[68px]">
                                 <svg class="h-full w-full" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet" fill="none">
@@ -900,8 +900,8 @@
                                 </svg>
                             </div>
                             <div class="self-center">
-                                <h3 class="text-[18px] font-bold text-gray-900 mb-1">Always in control</h3>
-                                <p class="text-[15px] text-gray-500 leading-relaxed max-w-md">You decide what you share, and you can delete your data at any time.</p>
+                                <h3 class="text-[18px] font-bold text-gray-900 mb-1">Altijd controle</h3>
+                                <p class="text-[15px] text-gray-500 leading-relaxed max-w-md">Jij bepaalt wat je deelt en je kunt je gegevens op elk moment verwijderen.</p>
                             </div>
                         </div>
                     </div>
@@ -917,12 +917,12 @@
                         <div class="lock-shadow"></div>
                     </div>
                     <div class="flex items-center gap-3 mt-10 text-gray-400">
-                        <span class="text-[13px] font-medium">Works with</span>
+                        <span class="text-[13px] font-medium">Werkt met</span>
                         <!-- Gmail / Google -->
                         <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.9a5 5 0 01-2.2 3.3v2.7h3.6c2.1-2 3.2-4.8 3.2-7.8z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.7l-3.6-2.7c-1 .7-2.3 1.1-3.6 1.1-2.8 0-5.1-1.9-6-4.4H2.3v2.8A11 11 0 0012 23z"/><path fill="#FBBC05" d="M6 14.3a6.6 6.6 0 010-4.2V7.3H2.3a11 11 0 000 9.8z"/><path fill="#EA4335" d="M12 5.5c1.6 0 3 .5 4.1 1.6l3.1-3.1A11 11 0 002.3 7.3L6 10.1c.9-2.6 3.2-4.6 6-4.6z"/></svg>
                         <!-- Outlook / Microsoft -->
                         <svg class="w-5 h-5" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" fill="#F25022"/><rect x="13" y="3" width="8" height="8" fill="#7FBA00"/><rect x="3" y="13" width="8" height="8" fill="#00A4EF"/><rect x="13" y="13" width="8" height="8" fill="#FFB900"/></svg>
-                        <span class="text-[13px] font-medium">Gmail and Outlook</span>
+                        <span class="text-[13px] font-medium">Gmail en Outlook</span>
                     </div>
                 </div>
             </div>
@@ -930,21 +930,21 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- SECTION: Pricing — Free vs Pro                               -->
-    <!-- Free = rust (al een compleet product). Pro = nooit iets      -->
+    <!-- SECTION: Prijzen — Gratis vs Pro                               -->
+    <!-- Gratis = rust (al een compleet product). Pro = nooit iets      -->
     <!-- missen. (Interne conversie-triggers bewust weggelaten.)        -->
     <!-- ============================================================= -->
     <section id="prijzen" class="py-28 lg:py-32 bg-gray-50">
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
             <div class="text-center reveal mb-14">
                 <span class="inline-flex items-center gap-1.5 text-[13px] font-bold text-app-accentDark tracking-tight uppercase mb-5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span> Pricing
+                    <span class="w-1.5 h-1.5 rounded-full bg-app-accent"></span> Prijzen
                 </span>
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-5 leading-[1.05]">
-                    Start free.<br>Upgrade when you never want to miss a thing.
+                    Begin gratis.<br>Upgrade als je niets meer wil missen.
                 </h2>
                 <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                    Free gives you calm. Premium makes sure you never miss a thing.
+                    Gratis geeft je rust. Premium zorgt dat je nooit meer iets mist.
                 </p>
             </div>
 
@@ -953,42 +953,42 @@
                 <!-- GRATIS -->
                 <div class="bg-white rounded-3xl border border-gray-200 shadow-[0_2px_20px_rgba(0,0,0,0.04)] p-8 lg:p-10 flex flex-col">
                     <div class="flex items-baseline justify-between">
-                        <h3 class="text-2xl font-bold text-gray-900">Free</h3>
-                        <span class="text-[13px] font-semibold text-gray-400">Forever</span>
+                        <h3 class="text-2xl font-bold text-gray-900">Gratis</h3>
+                        <span class="text-[13px] font-semibold text-gray-400">Voor altijd</span>
                     </div>
                     <div class="mt-4 flex items-end gap-1">
                         <span class="text-5xl font-bold tracking-tight text-gray-900">€0</span>
                     </div>
                     <p class="mt-4 text-[15px] text-gray-500 leading-relaxed">
-                        Beeylo gives you calm. Only what matters, nothing else. Already fundamentally better than any regular inbox.
+                        Beeylo geeft je rust. Alleen wat telt, niets anders. Al fundamenteel beter dan elke gewone inbox.
                     </p>
 
                     <a href="#download" class="mt-7 w-full inline-flex items-center justify-center h-12 rounded-full bg-gray-900 text-white font-medium hover:bg-gray-800 transition-colors">
-                        Download the app
+                        Download de app
                     </a>
 
                     <div class="mt-8 pt-8 border-t border-gray-100 flex-1">
-                        <p class="text-[13px] font-semibold text-gray-400 uppercase tracking-wide mb-4">What you get</p>
+                        <p class="text-[13px] font-semibold text-gray-400 uppercase tracking-wide mb-4">Wat je krijgt</p>
                         <ul class="space-y-3.5">
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Filtered inbox</span> — only messages that matter</span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Gefilterde inbox</span> — alleen berichten die er toe doen</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Important &amp; Updates</span> — what needs action and what you should know</span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Belangrijk &amp; Updates</span> — wat actie vereist en wat je moet weten</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Full archive</span> on the messages page</span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Volledig archief</span> op de berichtenpagina</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Smart search</span> — type what you're looking for, find it instantly</span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">Slimme zoekfunctie</span> — typ wat je zoekt, vind het meteen</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-urgent-green/15 flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#2A9C4A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">1 week of mail history</span> — you see what's happening now</span>
+                                <span class="text-[15px] text-gray-700"><span class="font-semibold text-gray-900">1 week mailgeschiedenis</span> — je ziet wat er nu speelt</span>
                             </li>
                         </ul>
                     </div>
@@ -1000,55 +1000,55 @@
                     <div class="relative flex items-baseline justify-between">
                         <div class="flex items-center gap-2.5">
                             <h3 class="text-2xl font-bold text-white">Pro</h3>
-                            <span class="text-[11px] font-bold uppercase tracking-wide text-gray-900 bg-app-accent rounded-full px-2.5 py-1">Most popular</span>
+                            <span class="text-[11px] font-bold uppercase tracking-wide text-gray-900 bg-app-accent rounded-full px-2.5 py-1">Meest gekozen</span>
                         </div>
                     </div>
                     <div class="relative mt-4 flex items-end gap-2">
-                        <span class="text-5xl font-bold tracking-tight text-white">€7.99</span>
-                        <span class="text-gray-400 mb-1.5">/ month</span>
+                        <span class="text-5xl font-bold tracking-tight text-white">€7,99</span>
+                        <span class="text-gray-400 mb-1.5">/ maand</span>
                     </div>
-                    <p class="relative mt-1.5 text-[14px] text-app-accent font-medium">or €79 per year — 2 months free</p>
+                    <p class="relative mt-1.5 text-[14px] text-app-accent font-medium">of €79 per jaar — 2 maanden gratis</p>
                     <p class="relative mt-4 text-[15px] text-gray-400 leading-relaxed">
-                        Beeylo makes sure you never miss a thing. All the intelligence working for you behind the scenes.
+                        Beeylo zorgt dat je nooit meer iets mist. Alle intelligentie die op de achtergrond voor je meedenkt.
                     </p>
 
                     <a href="#download" class="relative mt-7 w-full inline-flex items-center justify-center h-12 rounded-full bg-app-accent text-gray-900 font-semibold hover:brightness-105 transition-all shadow-lg shadow-app-accent/20">
-                        Try Pro
+                        Probeer Pro
                     </a>
 
                     <div class="relative mt-8 pt-8 border-t border-white/10 flex-1">
-                        <p class="text-[13px] font-semibold text-gray-400 uppercase tracking-wide mb-4">Everything in Free, plus</p>
+                        <p class="text-[13px] font-semibold text-gray-400 uppercase tracking-wide mb-4">Alles uit Gratis, plus</p>
                         <ul class="space-y-3.5">
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">4 weeks of mail history</span> — a complete picture of what's going on</span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">4 weken mailgeschiedenis</span> — een volledig beeld van wat er speelt</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Automatic reminders</span> — due dates, appointments and deadlines are flagged automatically</span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Automatische herinneringen</span> — vervaldatums, afspraken en deadlines worden vanzelf gesignaleerd</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Your own reminders</span> — you decide when you're reminded about a message</span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Eigen herinneringen</span> — jij bepaalt wanneer je aan een bericht herinnerd wordt</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Pin cards</span> — keep important messages on top until you remove them</span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Kaarten vastzetten</span> — houd belangrijke berichten bovenaan tot jij ze weghaalt</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Smart Thread</span> — related emails bundled with a growing timeline</span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Smart Thread</span> — gerelateerde mails gebundeld met een groeiende tijdlijn</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="w-5 h-5 mt-0.5 rounded-full bg-app-accent flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 5" stroke="#111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Automatic calendar</span> — everything tracked in one overview</span>
+                                <span class="text-[15px] text-gray-300"><span class="font-semibold text-white">Automatische agenda</span> — alles wat is bijgehouden in één overzicht</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <p class="text-center text-[14px] text-gray-400 mt-8 reveal">No credit card to get started. Cancel whenever you want.</p>
+            <p class="text-center text-[14px] text-gray-400 mt-8 reveal">Geen creditcard nodig om te beginnen. Stop wanneer je wil.</p>
         </div>
     </section>
 
@@ -1063,9 +1063,9 @@
             </div>
 
             <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-4 leading-[1.05]">
-                This is what an<br>empty inbox feels like.
+                Zo voelt een<br>lege inbox.
             </h2>
-            <p class="text-lg text-gray-500 mb-12">Nothing left to search. Nothing left to miss. Just calm.</p>
+            <p class="text-lg text-gray-500 mb-12">Niets meer te zoeken. Niets meer te missen. Gewoon rust.</p>
 
             <div class="inline-flex flex-col sm:flex-row justify-center items-center gap-4">
                 <div class="relative">
@@ -1073,7 +1073,7 @@
                         <div class="flex items-center gap-3">
                             <svg class="w-8 h-8 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                             <div class="text-left">
-                                <div class="text-[10px] leading-tight">Download on the</div>
+                                <div class="text-[10px] leading-tight">Download in de</div>
                                 <div class="text-lg font-semibold leading-tight">App Store</div>
                             </div>
                         </div>
@@ -1084,7 +1084,7 @@
                         <div class="flex items-center gap-3">
                             <svg class="w-8 h-8 fill-current" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                             <div class="text-left">
-                                <div class="text-[10px] leading-tight text-gray-500">GET IT ON</div>
+                                <div class="text-[10px] leading-tight text-gray-500">ONTDEK HET OP</div>
                                 <div class="text-lg font-semibold leading-tight">Google Play</div>
                             </div>
                         </div>
@@ -1092,7 +1092,7 @@
                 </div>
             </div>
             <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-gray-500">Coming soon</p>
-            <p class="text-base text-gray-500 mt-6">Use Beeylo for free.</p>
+            <p class="text-base text-gray-500 mt-6">Gebruik Beeylo nu gratis.</p>
         </div>
     </section>
 
@@ -1100,13 +1100,13 @@
     <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <img src="logo.png" alt="Beeylo" class="w-6 h-6 object-contain">
-                <img src="wordmark.png" alt="Beeylo" class="h-3.5 object-contain brightness-0 invert opacity-90">
+                <img src="/logo.png" alt="Beeylo" class="w-6 h-6 object-contain">
+                <img src="/wordmark.png" alt="Beeylo" class="h-3.5 object-contain brightness-0 invert opacity-90">
             </div>
-            <div class="text-sm">&copy; 2026 Beeylo. All rights reserved.</div>
+            <div class="text-sm">&copy; 2026 Beeylo. Alle rechten voorbehouden.</div>
             <div class="flex gap-6 text-sm">
                 <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
-                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Voorwaarden</a>
                 <a href="mailto:info@beeylo.com" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>
@@ -1140,18 +1140,18 @@
 
             // Realistische kaarten uit de app (StackWrap _SliderCard)
             const scenes = [
-                { company: 'bol.com',  ava: 'bol.', avaColor: '#0A56C2', time: '2h', grad: 'linear-gradient(135deg,#0A3E8F,#1A5FCC)',
-                  title: 'Your September invoice is ready to pay', action: 'check',
-                  toast: 'Checked off · moved to read' },
+                { company: 'bol.com',  ava: 'bol.', avaColor: '#0A56C2', time: '2u', grad: 'linear-gradient(135deg,#0A3E8F,#1A5FCC)',
+                  title: 'Je factuur van september staat klaar om te betalen', action: 'check',
+                  toast: 'Afgevinkt · verplaatst naar gelezen' },
                 { company: 'Coolblue', ava: 'cb', avaColor: '#0090E3', time: '1d', grad: 'linear-gradient(135deg,#0E5C8A,#1488C9)',
-                  title: 'Your new sneakers are on the way', action: 'check',
-                  toast: 'Seen · your parcel is coming' },
-                { company: 'Tax Office', ava: 'TX', avaColor: '#1F4E8C', time: '3h', grad: 'linear-gradient(135deg,#1F7A52,#2FA06B)',
-                  title: 'Tax return: pay before June 30', action: 'reminder',
-                  toast: 'Reminder set · June 28, 10:00' },
-                { company: 'Vattenfall', ava: 'V', avaColor: '#FFDA00', time: '5h', grad: 'linear-gradient(135deg,#5B3A8C,#8456C8)',
-                  title: 'Your annual statement is in and approved', action: 'check',
-                  toast: 'Checked off · nothing to do' }
+                  title: 'Je nieuwe sneakers zijn onderweg', action: 'check',
+                  toast: 'Gezien · je pakket komt eraan' },
+                { company: 'Belastingdienst', ava: 'BD', avaColor: '#1F4E8C', time: '3u', grad: 'linear-gradient(135deg,#1F7A52,#2FA06B)',
+                  title: 'Aangifte: betaal vóór 30 juni', action: 'reminder',
+                  toast: 'Herinnering gezet · 28 juni 10:00' },
+                { company: 'Vattenfall', ava: 'V', avaColor: '#FFDA00', time: '5u', grad: 'linear-gradient(135deg,#5B3A8C,#8456C8)',
+                  title: 'Je jaarafrekening is binnen en akkoord', action: 'check',
+                  toast: 'Afgevinkt · niets te doen' }
             ];
 
             const wait = ms => new Promise(r => setTimeout(r, ms));
