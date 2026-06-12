@@ -251,6 +251,58 @@
             .act-bell.set { animation: none; }
         }
 
+        /* ====== Slot ("Jij hebt de sleutel") — amber body, metallic beugel ====== */
+        .lock { width: 260px; height: 320px; }
+        @media (max-width: 480px) { .lock { width: 220px; height: 280px; } }
+        /* Beugel: U-vorm achter de body */
+        .lock-shackle {
+            position: absolute;
+            left: 50%; transform: translateX(-50%);
+            top: 6px;
+            width: 150px; height: 165px;
+            border: 18px solid #C9CDD4;
+            border-bottom: 0;
+            border-radius: 90px 90px 0 0;
+            background: linear-gradient(90deg, #E9ecef 0%, #C9CDD4 45%, #AEB3BB 55%, #DDE1E6 100%);
+            -webkit-mask: linear-gradient(#000 0 0); /* nette randen */
+            box-shadow: inset 0 6px 8px rgba(255,255,255,0.5);
+        }
+        /* Body: afgeronde amber-kubus */
+        .lock-body {
+            position: absolute;
+            bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 244px; height: 214px;
+            border-radius: 44px;
+            background: linear-gradient(150deg, #FFDD7A 0%, #F8C033 42%, #F0A800 100%);
+            box-shadow:
+                inset 0 4px 10px rgba(255,255,255,0.55),
+                inset 0 -16px 28px rgba(176,120,0,0.35),
+                0 26px 46px -14px rgba(240,168,0,0.55);
+            display: flex; align-items: center; justify-content: center;
+        }
+        @media (max-width: 480px) { .lock-body { width: 208px; height: 182px; border-radius: 38px; } }
+        /* Embossed b */
+        .lock-b {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 132px;
+            line-height: 1;
+            color: #F2B606;
+            text-shadow:
+                0 2px 1px rgba(255,255,255,0.55),
+                0 -2px 3px rgba(150,100,0,0.35);
+            transform: translateY(4px);
+        }
+        @media (max-width: 480px) { .lock-b { font-size: 112px; } }
+        /* Zachte grondschaduw */
+        .lock-shadow {
+            position: absolute;
+            bottom: -26px; left: 50%; transform: translateX(-50%);
+            width: 230px; height: 34px;
+            background: radial-gradient(ellipse, rgba(176,120,0,0.22) 0%, rgba(176,120,0,0) 70%);
+            border-radius: 50%;
+        }
+
         .phone-before { filter: grayscale(0.25) brightness(0.99); }
     </style>
     <script>
@@ -734,43 +786,98 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- SECTION: Jij hebt de sleutel (Image 5)                         -->
+    <!-- SECTION: Jij hebt de sleutel (Image 5 — privacy by design)     -->
     <!-- ============================================================= -->
-    <section class="py-28 lg:py-32 bg-white">
+    <section class="py-24 lg:py-32 bg-white overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="text-center reveal mb-16">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-5">
-                    Jij hebt de sleutel.
-                </h2>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                    Je inbox is privé. Bij Beeylo blijft dat zo, geen uitzonderingen en geen kleine lettertjes.
-                </p>
+
+            <!-- Privacy by design badge, rechtsboven -->
+            <div class="flex justify-end mb-8 reveal">
+                <span class="inline-flex items-center gap-2 bg-white ring-1 ring-gray-200 rounded-full pl-2.5 pr-4 py-2 shadow-sm">
+                    <span class="w-6 h-6 rounded-full bg-app-accent/15 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-app-accentDark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2"><rect x="5" y="11" width="14" height="9" rx="2"/><path stroke-linecap="round" d="M8 11V8a4 4 0 018 0v3"/></svg>
+                    </span>
+                    <span class="text-[13px] font-semibold text-gray-700">Privacy by design</span>
+                </span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal reveal-d1">
-                <!-- Versleuteld -->
-                <div class="bg-gray-50 rounded-3xl p-8">
-                    <div class="w-14 h-14 rounded-2xl bg-app-accent/15 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-app-accentDark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path stroke-linecap="round" d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <!-- LINKS: tekst + kaarten + rijen -->
+                <div class="reveal order-2 lg:order-1">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.05]">
+                        Jij hebt <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">de sleutel.</span>
+                    </h2>
+                    <p class="text-lg text-gray-500 leading-relaxed mb-9 max-w-lg">
+                        Je inbox is privé. Beeylo gebruikt je gegevens alleen om jou te helpen. Nooit voor advertenties. Nooit voor iemand anders.
+                    </p>
+
+                    <!-- 3 kaarten -->
+                    <div class="grid sm:grid-cols-3 gap-4 mb-4">
+                        <div class="rounded-2xl bg-white ring-1 ring-gray-200/80 shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-5">
+                            <div class="w-11 h-11 rounded-xl bg-app-accent/15 flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5 text-app-accentDark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path stroke-linecap="round" d="M5.5 20a6.5 6.5 0 0113 0"/></svg>
+                            </div>
+                            <h3 class="text-[16px] font-bold text-gray-900 mb-1.5">Alleen jij</h3>
+                            <p class="text-[13.5px] text-gray-500 leading-relaxed">Jouw gegevens blijven van jou. Niemand anders heeft toegang.</p>
+                        </div>
+                        <div class="rounded-2xl bg-white ring-1 ring-gray-200/80 shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-5">
+                            <div class="w-11 h-11 rounded-xl bg-app-accent/15 flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5 text-app-accentDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.4L19 9l-5.4 1.6L12 16l-1.6-5.4L5 9l5.4-1.6z"/></svg>
+                            </div>
+                            <h3 class="text-[16px] font-bold text-gray-900 mb-1.5">Alleen voor hulp</h3>
+                            <p class="text-[13.5px] text-gray-500 leading-relaxed">We lezen je berichten om ze te organiseren, samenvatten en acties zichtbaar te maken.</p>
+                        </div>
+                        <div class="rounded-2xl bg-white ring-1 ring-gray-200/80 shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-5">
+                            <div class="w-11 h-11 rounded-xl bg-app-accent/15 flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5 text-app-accentDark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+                            </div>
+                            <h3 class="text-[16px] font-bold text-gray-900 mb-1.5">Altijd controle</h3>
+                            <p class="text-[13.5px] text-gray-500 leading-relaxed">Jij bepaalt wat je deelt en je kunt je gegevens op elk moment verwijderen.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2.5">Versleuteld opgeslagen</h3>
-                    <p class="text-[15px] text-gray-500 leading-relaxed">Je data wordt versleuteld bewaard. Niemand anders komt erbij, alleen jij.</p>
+
+                    <!-- Brede rij: beveiligd van begin tot eind -->
+                    <a href="privacy.html" class="group flex items-center gap-4 rounded-2xl bg-white ring-1 ring-gray-200/80 shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-5 mb-6 hover:ring-gray-300 transition">
+                        <span class="w-11 h-11 rounded-xl bg-app-accent/15 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-app-accentDark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/></svg>
+                        </span>
+                        <span class="flex-1 min-w-0">
+                            <span class="block text-[15px] font-bold text-gray-900">Beveiligd van begin tot eind</span>
+                            <span class="block text-[13.5px] text-gray-500">Versleuteld, beschermd en gebouwd met privacy als uitgangspunt.</span>
+                        </span>
+                        <svg class="w-5 h-5 text-gray-300 flex-shrink-0 group-hover:text-gray-400 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></svg>
+                    </a>
+
+                    <!-- Onderregel -->
+                    <div class="flex items-center gap-4">
+                        <span class="w-11 h-11 rounded-xl bg-app-accent/15 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-app-accentDark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path stroke-linecap="round" d="M8 11V8a4 4 0 018 0v3"/></svg>
+                        </span>
+                        <div>
+                            <p class="text-[17px] font-bold text-gray-900 leading-tight">Wat van jou is, blijft van jou.</p>
+                            <p class="text-[14px] text-gray-500">Geen uitzonderingen. Geen kleine lettertjes.</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Alleen voor jou -->
-                <div class="bg-gray-50 rounded-3xl p-8">
-                    <div class="w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+
+                <!-- RECHTS: groot slot met embossed "b" -->
+                <div class="reveal reveal-d1 order-1 lg:order-2 flex flex-col items-center">
+                    <div class="lock relative">
+                        <div class="lock-shackle"></div>
+                        <div class="lock-body">
+                            <span class="lock-b">b</span>
+                        </div>
+                        <div class="lock-shadow"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2.5">Alleen voor jou</h3>
-                    <p class="text-[15px] text-gray-500 leading-relaxed">Beeylo leest je mails om jóu te helpen. Nooit voor advertenties, nooit voor iets anders.</p>
-                </div>
-                <!-- Stop wanneer je wil -->
-                <div class="bg-gray-50 rounded-3xl p-8">
-                    <div class="w-14 h-14 rounded-2xl bg-gray-900 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/></svg>
+                    <div class="flex items-center gap-3 mt-10 text-gray-400">
+                        <span class="text-[13px] font-medium">Werkt met</span>
+                        <!-- Gmail / Google -->
+                        <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.9a5 5 0 01-2.2 3.3v2.7h3.6c2.1-2 3.2-4.8 3.2-7.8z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.7l-3.6-2.7c-1 .7-2.3 1.1-3.6 1.1-2.8 0-5.1-1.9-6-4.4H2.3v2.8A11 11 0 0012 23z"/><path fill="#FBBC05" d="M6 14.3a6.6 6.6 0 010-4.2V7.3H2.3a11 11 0 000 9.8z"/><path fill="#EA4335" d="M12 5.5c1.6 0 3 .5 4.1 1.6l3.1-3.1A11 11 0 002.3 7.3L6 10.1c.9-2.6 3.2-4.6 6-4.6z"/></svg>
+                        <!-- Outlook / Microsoft -->
+                        <svg class="w-5 h-5" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" fill="#F25022"/><rect x="13" y="3" width="8" height="8" fill="#7FBA00"/><rect x="3" y="13" width="8" height="8" fill="#00A4EF"/><rect x="13" y="13" width="8" height="8" fill="#FFB900"/></svg>
+                        <span class="text-[13px] font-medium">Gmail en Outlook</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2.5">Stop wanneer je wil</h3>
-                    <p class="text-[15px] text-gray-500 leading-relaxed">Eén tap en alles is gewist. Geen gedoe, geen vragen. Jij houdt de controle.</p>
                 </div>
             </div>
         </div>
